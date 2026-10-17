@@ -123,3 +123,10 @@ body{margin:0;overflow-x:hidden}
 .hero-content-image{position:absolute!important;left:50%;top:50%;transform:translate(-50%,-50%)!important;width:100%!important;max-width:none!important;height:auto;max-height:none;padding:0!important;margin:0!important;display:flex!important;align-items:center;justify-content:center;animation:none!important}
 .hero-title-image{display:block;width:min(1120px,92vw)!important;max-width:92vw!important;height:auto!important;max-height:68vh!important;object-fit:contain;object-position:center;margin:0 auto!important}
 @media(max-width:700px){.hero-title-image{width:94vw!important;max-width:94vw!important;max-height:58vh!important}.hero-content-image{left:50%;top:47%}}
+
+
+/* Ajustement après vérification : la composition du PNG est décalée dans son propre canevas.
+   On réduit l'illustration et on la décale vers la gauche pour que tout le titre soit visible. */
+.hero-content-image{left:50%!important;top:50%!important;width:100%!important;overflow:visible!important}
+.hero-title-image{width:min(980px,78vw)!important;max-width:78vw!important;max-height:64vh!important;transform:translateX(-18%)!important}
+@media(max-width:700px){.hero-title-image{width:94vw!important;max-width:94vw!important;max-height:54vh!important;transform:translateX(-10%)!important}}
