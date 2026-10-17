@@ -288,14 +288,30 @@ body{margin:0;overflow-x:hidden}
 }
 
 
-/* Visible outline shimmer — stronger red contour and unmistakable animation */
-.hero .hero-content-image .hero-title-image{
-  filter:drop-shadow(0 0 2px rgba(255,25,20,.85)) drop-shadow(0 0 7px rgba(190,0,0,.7))!important;
-  animation:ayato-outline-shimmer 2.8s ease-in-out infinite!important;
+/* Lueur animée sur le logo : respiration lumineuse, sans halo rouge fixe ni balayage */
+.hero .hero-content-image::after{
+  content:none!important;
+  display:none!important;
 }
-@keyframes ayato-outline-shimmer{
-  0%,100%{filter:drop-shadow(0 0 1px rgba(255,20,15,.4)) drop-shadow(0 0 3px rgba(170,0,0,.35))}
-  25%{filter:drop-shadow(0 0 3px rgba(255,35,25,.95)) drop-shadow(0 0 10px rgba(220,0,0,.85)) drop-shadow(0 0 18px rgba(150,0,0,.45))}
-  50%{filter:drop-shadow(0 0 2px rgba(255,230,215,1)) drop-shadow(0 0 6px rgba(255,25,20,.95)) drop-shadow(0 0 15px rgba(170,0,0,.7))}
-  75%{filter:drop-shadow(0 0 4px rgba(255,35,25,.95)) drop-shadow(0 0 12px rgba(210,0,0,.8))}
+.hero .hero-content-image .hero-title-image{
+  filter:none!important;
+  animation:ayato-text-glow 3.2s ease-in-out infinite!important;
+  will-change:filter;
+}
+@keyframes ayato-text-glow{
+  0%,100%{
+    filter:brightness(1) drop-shadow(0 0 0 rgba(255,35,25,0));
+  }
+  35%{
+    filter:brightness(1.04) drop-shadow(0 0 2px rgba(255,45,35,.28));
+  }
+  55%{
+    filter:brightness(1.14) drop-shadow(0 0 5px rgba(255,55,40,.65)) drop-shadow(0 0 10px rgba(190,0,0,.28));
+  }
+  72%{
+    filter:brightness(1.06) drop-shadow(0 0 2px rgba(255,45,35,.3));
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .hero .hero-content-image .hero-title-image{animation:none!important;filter:none!important}
 }
