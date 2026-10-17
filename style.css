@@ -117,3 +117,9 @@ body{margin:0;overflow-x:hidden}
 .hero-content-image{width:min(1450px,96vw);padding:30px 0 45px;display:grid;place-items:center}
 .hero-title-image{display:block;width:min(1280px,94vw);max-height:76vh;height:auto;object-fit:contain;margin:0 auto;filter:drop-shadow(0 4px 20px rgba(0,0,0,.45))}
 @media(max-width:700px){.hero-content-image{width:96vw;padding:25px 0 55px}.hero-title-image{width:96vw;max-height:64vh}}
+
+
+/* Correctif cadrage : centrer l'illustration complète et éviter qu'elle déborde à droite */
+.hero-content-image{position:absolute!important;left:50%;top:50%;transform:translate(-50%,-50%)!important;width:100%!important;max-width:none!important;height:auto;max-height:none;padding:0!important;margin:0!important;display:flex!important;align-items:center;justify-content:center;animation:none!important}
+.hero-title-image{display:block;width:min(1120px,92vw)!important;max-width:92vw!important;height:auto!important;max-height:68vh!important;object-fit:contain;object-position:center;margin:0 auto!important}
+@media(max-width:700px){.hero-title-image{width:94vw!important;max-width:94vw!important;max-height:58vh!important}.hero-content-image{left:50%;top:47%}}
