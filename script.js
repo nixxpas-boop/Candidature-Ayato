@@ -5,12 +5,12 @@
   const menuToggle = document.getElementById('menuToggle');
   const nav = document.querySelector('.topnav');
   let finished = false;
-  let fallbackTimer;
+  let safetyTimer;
 
   function revealSite() {
     if (finished) return;
     finished = true;
-    window.clearTimeout(fallbackTimer);
+    window.clearTimeout(safetyTimer);
     intro.classList.add('is-fading');
     window.setTimeout(() => {
       intro.classList.add('is-done');
@@ -22,25 +22,18 @@
   }
 
   video.addEventListener('ended', revealSite);
-  video.addEventListener('error', () => {
-    // If the file cannot be played, move on instead of leaving a black screen forever.
-    fallbackTimer = window.setTimeout(revealSite, 1200);
-  });
+  video.addEventListener('error', revealSite);
 
+  // Do not let a slow or unsupported video hold the whole site on a black screen.
+  safetyTimer = window.setTimeout(revealSite, 10000);
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reducedMotion) {
     video.pause();
     revealSite();
   } else {
-    const playAttempt = video.play();
-    if (playAttempt && typeof playAttempt.catch === 'function') {
-      playAttempt.catch(() => {
-        // Muted autoplay is normally allowed; this is a fallback for restrictive browsers.
-        video.controls = true;
-      });
-    }
-    // Failsafe: if the video cannot start or never ends, the page remains accessible.
-    fallbackTimer = window.setTimeout(revealSite, 20000);
+    video.play().catch(() => {
+      // If autoplay is blocked, the safety timer still reveals the site.
+    });
   }
 
   menuToggle.addEventListener('click', () => {
