@@ -170,3 +170,15 @@ body{margin:0;overflow-x:hidden}
   transform:translateX(-2%)!important;
  }
 }
+
+
+/* Background coverage fix: keep the complete source image visible across the full hero */
+.hero{position:relative!important;isolation:isolate}
+.hero-art{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;overflow:hidden!important}
+.hero-art img{
+  position:absolute!important;inset:0!important;
+  width:100%!important;height:100%!important;
+  max-width:none!important;max-height:none!important;
+  object-fit:fill!important;
+  object-position:center center!important;
+}
