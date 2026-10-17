@@ -87,3 +87,13 @@ body{background:transparent!important}
 .warning-stamp{white-space:nowrap}
 @media(max-width:1000px){.sommaire-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.hero-art img{object-position:55% center}.sommaire-grid{grid-template-columns:1fr 1fr}.sommaire-card{min-height:145px;padding:17px}.sommaire-card small{max-width:90%}}
+
+
+/* Fond de l'accueil : image d'origine affichée en noir et blanc via CSS */
+.hero{isolation:isolate;background:#090909}
+.hero-art{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-art img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 42%;filter:grayscale(100%) brightness(.62) contrast(1.08);opacity:.9}
+.hero:before{z-index:0;background:linear-gradient(90deg,rgba(0,0,0,.46),rgba(0,0,0,.12) 48%,rgba(0,0,0,.46)),linear-gradient(0deg,rgba(0,0,0,.72),rgba(0,0,0,.12) 48%,rgba(0,0,0,.34)),radial-gradient(ellipse at center,transparent 0 24%,rgba(0,0,0,.34) 92%)}
+.hero-shade{z-index:0;position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.18),transparent 32%,transparent 68%,rgba(0,0,0,.24))}
+.hero-content{z-index:2}
+.hero-side-note,.hero-bottom{z-index:2}
