@@ -12,16 +12,10 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="background-image" aria-hidden="true"></div>
   <div class="film-grain" aria-hidden="true"></div>
 
-  <section class="intro" id="intro" aria-label="Introduction">
-    <video id="burnVideo" class="burn-video" autoplay muted playsinline preload="metadata">
-      <source src="asset/Design%20sans%20titre%20(1).mp4" type="video/mp4">
-    </video>
-    <div class="intro-blackout" id="introBlackout" aria-hidden="true"></div>
-  </section>
-
-  <main class="site-shell" id="site" aria-hidden="true">
+  <main class="site-shell is-visible" id="site">
     <header class="topbar">
       <a class="seal" href="#accueil" aria-label="Retour à l'accueil"><span class="seal-inner">A</span></a>
       <div class="topbar-title"><span>ARCHIVES IMPÉRIALES</span><small>Département des dossiers spéciaux</small></div>
@@ -112,6 +106,6 @@
 
     <footer class="footer"><span>OWARI NO SERAPH · CANDIDATURE AYATO</span><span>ARCHIVES CONFIDENTIELLES</span><span>© DOSSIER PERSONNEL</span></footer>
   </main>
-  <script src="script.js"></script>
+
 </body>
 </html>
