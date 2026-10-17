@@ -136,3 +136,20 @@ body{margin:0;overflow-x:hidden}
 .hero .hero-content.hero-content-image{position:absolute!important;left:50%!important;top:50%!important;width:100%!important;max-width:100%!important;height:auto!important;padding:0!important;margin:0!important;display:flex!important;justify-content:center!important;align-items:center!important;transform:translate(-50%,-50%)!important;animation:none!important}
 .hero .hero-content-image .hero-title-image{display:block!important;width:min(760px,58vw)!important;max-width:min(760px,58vw)!important;height:auto!important;max-height:60vh!important;object-fit:contain!important;margin:0!important;transform:translateX(-13%)!important}
 @media(max-width:700px){.hero .hero-content-image .hero-title-image{width:88vw!important;max-width:88vw!important;max-height:52vh!important;transform:translateX(-7%)!important}}
+
+
+/* Fine-tuning requested: title a little larger and optically centered */
+.hero .hero-content.hero-content-image{top:49%!important}
+.hero .hero-content-image .hero-title-image{
+  width:min(880px,66vw)!important;
+  max-width:min(880px,66vw)!important;
+  max-height:64vh!important;
+  transform:translateX(-8%)!important;
+}
+@media(max-width:700px){
+ .hero .hero-content.hero-content-image{top:48%!important}
+ .hero .hero-content-image .hero-title-image{
+  width:92vw!important;max-width:92vw!important;max-height:56vh!important;
+  transform:translateX(-4%)!important;
+ }
+}
