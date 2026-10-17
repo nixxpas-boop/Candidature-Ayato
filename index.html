@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=ayato-audio-1">
+  <link rel="stylesheet" href="style.css?v=ayato-audio-2">
 </head>
 <body>
   <div class="background-image" aria-hidden="true"></div>
@@ -40,6 +40,7 @@
       const button = document.getElementById("audio-toggle");
       const icon = button.querySelector(".audio-icon");
       const status = document.getElementById("audio-status");
+      audio.volume = 0.14;
       button.addEventListener("click", async () => {
         if (audio.paused) {
           try { await audio.play(); } catch (e) { status.textContent = "INDISPONIBLE"; }
