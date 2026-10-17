@@ -198,3 +198,33 @@ body{margin:0;overflow-x:hidden}
    to{filter:drop-shadow(0 0 4px rgba(255,62,48,.56)) drop-shadow(0 0 14px rgba(176,0,0,.40)) drop-shadow(0 0 28px rgba(130,0,0,.24))}
  }
 }
+
+
+/* Balayage lumineux rouge de gauche à droite sur le logo, sans halo pulsant */
+.hero .hero-content-image{overflow:hidden!important}
+.hero .hero-content-image .hero-title-image{
+  filter:none!important;
+  animation:none!important;
+}
+.hero .hero-content-image::after{
+  content:"";
+  position:absolute;
+  top:12%;
+  bottom:12%;
+  left:-35%;
+  width:22%;
+  pointer-events:none;
+  background:linear-gradient(105deg,transparent 0%,rgba(255,40,35,0) 20%,rgba(255,55,45,.16) 42%,rgba(255,235,220,.30) 50%,rgba(255,45,35,.16) 58%,rgba(255,40,35,0) 80%,transparent 100%);
+  filter:blur(9px);
+  transform:skewX(-18deg);
+  animation:ayato-light-sweep 5.5s ease-in-out infinite;
+}
+@keyframes ayato-light-sweep{
+  0%,12%{left:-35%;opacity:0}
+  20%{opacity:.8}
+  68%{opacity:.85}
+  88%,100%{left:115%;opacity:0}
+}
+@media(prefers-reduced-motion:reduce){
+ .hero .hero-content-image::after{animation:none;display:none}
+}
