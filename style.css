@@ -153,3 +153,20 @@ body{margin:0;overflow-x:hidden}
   transform:translateX(-4%)!important;
  }
 }
+
+
+/* Final optical adjustment: slightly larger and centered on the page */
+.hero .hero-content.hero-content-image{left:50%!important;top:49%!important}
+.hero .hero-content-image .hero-title-image{
+  width:min(980px,72vw)!important;
+  max-width:min(980px,72vw)!important;
+  max-height:66vh!important;
+  transform:translateX(-4%)!important;
+}
+@media(max-width:700px){
+ .hero .hero-content.hero-content-image{left:50%!important;top:48%!important}
+ .hero .hero-content-image .hero-title-image{
+  width:94vw!important;max-width:94vw!important;max-height:58vh!important;
+  transform:translateX(-2%)!important;
+ }
+}
