@@ -228,3 +228,33 @@ body{margin:0;overflow-x:hidden}
 @media(prefers-reduced-motion:reduce){
  .hero .hero-content-image::after{animation:none;display:none}
 }
+
+
+/* Remove the broad sweep and keep the motion confined to the transparent title artwork's silhouette */
+.hero .hero-content-image{overflow:visible!important}
+.hero .hero-content-image::after{content:none!important;display:none!important;animation:none!important}
+.hero .hero-content-image .hero-title-image{
+  filter:none!important;
+  animation:ayato-contour-glint 5s ease-in-out infinite!important;
+}
+@keyframes ayato-contour-glint{
+  0%,100%{
+    filter:drop-shadow(0 0 0 rgba(255,35,30,0))
+           drop-shadow(0 0 0 rgba(255,220,205,0));
+  }
+  35%{
+    filter:drop-shadow(0 0 1px rgba(255,45,35,.65))
+           drop-shadow(0 0 4px rgba(255,35,30,.42));
+  }
+  52%{
+    filter:drop-shadow(0 0 2px rgba(255,230,210,.82))
+           drop-shadow(0 0 7px rgba(255,35,30,.58));
+  }
+  68%{
+    filter:drop-shadow(0 0 1px rgba(255,45,35,.65))
+           drop-shadow(0 0 4px rgba(255,35,30,.42));
+  }
+}
+@media(prefers-reduced-motion:reduce){
+ .hero .hero-content-image .hero-title-image{animation:none!important}
+}
