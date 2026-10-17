@@ -15,3 +15,6 @@
 .background-image{position:fixed;inset:0;z-index:-2;background-image:linear-gradient(rgba(5,5,5,.66),rgba(5,5,5,.82)),url("asset/Dossier%20militaire%20dans%20une%20ville%20en%20ruines.png");background-position:center;background-size:cover;background-repeat:no-repeat;background-attachment:fixed;pointer-events:none}
 body{position:relative;isolation:isolate}
 .site-shell{position:relative;z-index:1}
+
+.hero-logo{display:block;width:min(100%,1000px);height:auto;max-height:clamp(220px,42vh,430px);object-fit:contain;margin:24px auto 20px;filter:drop-shadow(0 8px 22px rgba(0,0,0,.35))}
+@media(max-width:760px){.hero-logo{width:96%;max-height:32vh;margin:30px auto 24px}}
