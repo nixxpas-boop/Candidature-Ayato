@@ -32,6 +32,18 @@
     if (!opened) progressFrame = requestAnimationFrame(updateProgress);
   }
 
+  let safetyTimer = null;
+  function setVideoSafetyTimer() {
+    if (safetyTimer) window.clearTimeout(safetyTimer);
+    // Never leave visitors trapped on a black intro if playback stalls.
+    const duration = Number.isFinite(video.duration) && video.duration > 0 ? video.duration : 9;
+    const wait = Math.min(Math.max(duration + 1.5, 6), 22) * 1000;
+    safetyTimer = window.setTimeout(() => {
+      if (!opened) revealSite();
+    }, wait);
+  }
+
+  video.addEventListener('loadedmetadata', setVideoSafetyTimer);
   video.addEventListener('ended', revealSite);
   video.addEventListener('timeupdate', () => {
     if (video.duration && Number.isFinite(video.duration)) {
@@ -58,8 +70,11 @@
         caption.textContent = "Cliquez sur « Passer l'introduction » pour accéder aux archives.";
       });
     }
-    // Safety net in case a browser never dispatches the ended event.
-    window.setTimeout(() => { if (!opened && video.currentTime >= 4.85) revealSite(); }, 5600);
+    // Fallback if metadata never loads or the browser stalls during playback.
+    setVideoSafetyTimer();
+    video.addEventListener('stalled', () => {
+      if (!opened) window.setTimeout(revealSite, 3500);
+    }, { once: true });
   }
 
   menuToggle.addEventListener('click', () => {
