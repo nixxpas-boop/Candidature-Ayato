@@ -286,3 +286,16 @@ body{margin:0;overflow-x:hidden}
            drop-shadow(0 0 12px rgba(150,0,0,.35));
   }
 }
+
+
+/* Visible outline shimmer — stronger red contour and unmistakable animation */
+.hero .hero-content-image .hero-title-image{
+  filter:drop-shadow(0 0 2px rgba(255,25,20,.85)) drop-shadow(0 0 7px rgba(190,0,0,.7))!important;
+  animation:ayato-outline-shimmer 2.8s ease-in-out infinite!important;
+}
+@keyframes ayato-outline-shimmer{
+  0%,100%{filter:drop-shadow(0 0 1px rgba(255,20,15,.4)) drop-shadow(0 0 3px rgba(170,0,0,.35))}
+  25%{filter:drop-shadow(0 0 3px rgba(255,35,25,.95)) drop-shadow(0 0 10px rgba(220,0,0,.85)) drop-shadow(0 0 18px rgba(150,0,0,.45))}
+  50%{filter:drop-shadow(0 0 2px rgba(255,230,215,1)) drop-shadow(0 0 6px rgba(255,25,20,.95)) drop-shadow(0 0 15px rgba(170,0,0,.7))}
+  75%{filter:drop-shadow(0 0 4px rgba(255,35,25,.95)) drop-shadow(0 0 12px rgba(210,0,0,.8))}
+}
