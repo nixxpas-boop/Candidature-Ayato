@@ -111,3 +111,9 @@ body{margin:0;overflow-x:hidden}
 .hero-shade{z-index:1}
 .hero-content,.hero-side-note,.hero-bottom{z-index:2}
 @media(max-width:700px){.hero{height:100vh;height:100svh;min-height:100vh!important;min-height:100svh!important}.hero-content{padding:45px 0 75px}.hero-bottom{left:20px;right:20px;bottom:18px;flex-wrap:wrap;font-size:8px}.hero-bottom span:nth-child(2){display:none}}
+
+
+/* Titre illustré transparent : remplace la typographie HTML de l'accueil */
+.hero-content-image{width:min(1450px,96vw);padding:30px 0 45px;display:grid;place-items:center}
+.hero-title-image{display:block;width:min(1280px,94vw);max-height:76vh;height:auto;object-fit:contain;margin:0 auto;filter:drop-shadow(0 4px 20px rgba(0,0,0,.45))}
+@media(max-width:700px){.hero-content-image{width:96vw;padding:25px 0 55px}.hero-title-image{width:96vw;max-height:64vh}}
