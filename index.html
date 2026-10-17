@@ -14,20 +14,11 @@
 <body>
   <div class="film-grain" aria-hidden="true"></div>
 
-  <section class="intro" id="intro" aria-label="Ouverture des archives">
-    <div class="intro-mark">ARCHIVES CONFIDENTIELLES <span>•</span> SECTION SPÉCIALE</div>
-    <div class="intro-stage">
-      <video id="burnVideo" class="burn-video" autoplay muted playsinline preload="auto">
-        <source src="asset/Design%20sans%20titre%20(1).mp4" type="video/mp4">
-        Votre navigateur ne peut pas lire cette vidéo.
-      </video>
-      <div class="intro-fallback" id="introFallback" hidden>
-        <div class="fallback-paper"><span>OWARI NO SERAPH</span><strong>CANDIDATURE<br>AYATO</strong><small>DOSSIER CONFIDENTIEL</small></div>
-      </div>
-    </div>
-    <p class="intro-caption" id="introCaption">Un dossier classifié est en cours de déclassification…</p>
-    <button class="skip-intro" id="skipIntro" type="button">Passer l'introduction <span aria-hidden="true">↗</span></button>
-    <div class="intro-progress"><span id="introProgress"></span></div>
+  <section class="intro" id="intro" aria-label="Introduction">
+    <video id="burnVideo" class="burn-video" autoplay muted playsinline preload="auto">
+      <source src="asset/Design%20sans%20titre%20(1).mp4" type="video/mp4">
+    </video>
+    <div class="intro-blackout" id="introBlackout" aria-hidden="true"></div>
   </section>
 
   <main class="site-shell" id="site" aria-hidden="true">
