@@ -315,3 +315,28 @@ body{margin:0;overflow-x:hidden}
 @media(prefers-reduced-motion:reduce){
   .hero .hero-content-image .hero-title-image{animation:none!important;filter:none!important}
 }
+
+
+/* Lecteur audio discret — interface dossier confidentiel */
+.archive-audio{
+  position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:50;
+  display:flex;align-items:center;gap:11px;padding:10px 12px;
+  max-width:245px;color:#e8d7cf;
+  background:linear-gradient(135deg,rgba(12,10,11,.92),rgba(30,9,11,.88));
+  border:1px solid rgba(174,48,48,.42);border-left:2px solid rgba(190,35,38,.9);
+  box-shadow:0 8px 28px rgba(0,0,0,.42),inset 0 0 18px rgba(120,0,0,.08);
+  backdrop-filter:blur(8px);font-family:'Cinzel',serif;
+}
+.audio-seal{display:grid;place-items:center;flex:0 0 30px;width:30px;height:30px;border:1px solid rgba(190,55,55,.6);border-radius:50%;color:#d85b57;font-size:17px}
+.audio-details{display:flex;flex-direction:column;gap:3px;min-width:0}
+.audio-label{font-size:8px;letter-spacing:1.7px;color:#b85b58;white-space:nowrap}
+.audio-track{font-family:'Crimson Pro',serif;font-size:13px;color:#e9dfda;white-space:nowrap}
+.audio-toggle{flex:0 0 30px;width:30px;height:30px;border:1px solid rgba(190,55,55,.65);background:rgba(120,0,0,.18);color:#f1d8d0;cursor:pointer;font-size:11px;transition:background .2s,border-color .2s,box-shadow .2s}
+.audio-toggle:hover,.audio-toggle.is-playing{background:rgba(145,16,22,.48);border-color:#c94a45;box-shadow:0 0 12px rgba(170,20,25,.22)}
+.audio-status{position:absolute;left:12px;bottom:-16px;font:7px/1 'Cinzel',serif;letter-spacing:1.5px;color:rgba(220,190,184,.6)}
+@media(max-width:600px){
+ .archive-audio{right:12px;top:auto;bottom:48px;transform:none;gap:8px;padding:8px 9px;max-width:220px}
+ .audio-seal{width:26px;height:26px;flex-basis:26px}
+ .audio-track{font-size:12px}
+ .audio-toggle{width:28px;height:28px;flex-basis:28px}
+}
