@@ -2,8 +2,6 @@
   const intro = document.getElementById('intro');
   const site = document.getElementById('site');
   const video = document.getElementById('burnVideo');
-  const menuToggle = document.getElementById('menuToggle');
-  const nav = document.querySelector('.topnav');
   let finished = false;
   let safetyTimer;
 
@@ -36,13 +34,4 @@
     });
   }
 
-  menuToggle.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('is-open');
-    menuToggle.setAttribute('aria-expanded', String(isOpen));
-    menuToggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
-  });
-  nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-    nav.classList.remove('is-open');
-    menuToggle.setAttribute('aria-expanded', 'false');
-  }));
 })();
