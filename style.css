@@ -18,3 +18,48 @@ body{position:relative;isolation:isolate}
 
 .hero-logo{display:block;width:min(100%,1000px);height:auto;max-height:clamp(220px,42vh,430px);object-fit:contain;margin:24px auto 20px;filter:drop-shadow(0 8px 22px rgba(0,0,0,.35))}
 @media(max-width:760px){.hero-logo{width:96%;max-height:32vh;margin:30px auto 24px}}
+
+/* Cinematic Owari no Seraph archive redesign */
+html{scroll-padding-top:82px}
+body{background:transparent!important}
+.site-backdrop{z-index:-1!important;background-position:center 35%!important;background-size:cover!important;filter:saturate(.72) contrast(1.08)!important}
+.site-backdrop:after{background:linear-gradient(180deg,rgba(5,4,4,.58),rgba(5,4,4,.68) 38%,rgba(5,4,4,.91) 78%,rgba(5,4,4,.96))!important}
+.topbar{background:rgba(6,5,5,.94)!important;border-bottom-color:rgba(180,143,103,.35)!important}
+.brand-copy strong{color:#dfc8a6!important}.brand-copy small{color:#9b8466!important}
+.hero{min-height:clamp(580px,76vh,760px)!important;background:linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.12))!important}
+.hero:before{border-color:rgba(195,150,100,.28)!important}
+.hero-vignette{background:radial-gradient(ellipse at 50% 42%,rgba(108,29,27,.2),transparent 48%),linear-gradient(90deg,rgba(0,0,0,.4),transparent 28%,transparent 72%,rgba(0,0,0,.42))!important}
+.hero-content{width:min(950px,90vw)!important;padding:60px 0 80px!important}
+.japanese-title{margin:28px 0 0;font:clamp(42px,7vw,83px)/1.15 "Noto Serif JP",serif;letter-spacing:.1em;color:#e3d1b6;text-shadow:0 3px 28px #000,0 0 18px rgba(166,38,31,.32)}
+.series-title{margin:5px 0 17px;font:10px "Cinzel",serif;letter-spacing:.2em;color:#c7ad8c}
+.hero-rule{display:flex;align-items:center;justify-content:center;gap:14px;color:#cb4739;margin:12px auto}
+.hero-rule span{height:1px;width:min(135px,20vw);background:linear-gradient(90deg,transparent,#a63b31)}
+.hero-rule span:last-child{transform:rotate(180deg)}
+.application-title{margin:18px 0 0;font:clamp(19px,3vw,29px) "Cinzel",serif;letter-spacing:.3em;color:#dfccb0}
+.hero-name{margin:-2px 0 0;font:clamp(48px,7vw,82px)/1.1 "Cinzel",serif;letter-spacing:.26em;font-weight:400;color:#e5d4bb;padding-left:.26em;text-shadow:0 3px 28px #000}
+.hero-name em{font-style:normal;color:#c43d32}
+.hero-subtitle{color:#b7a48a!important}
+.sommaire-section{padding-top:72px;padding-bottom:80px;background:linear-gradient(180deg,rgba(7,6,5,.88),rgba(12,9,8,.94));border-top:1px solid rgba(181,135,92,.26);border-bottom:1px solid rgba(181,135,92,.26)}
+.sommaire-section .section-heading h2{color:#e4d2b6}
+.sommaire-note{margin:0;color:#ad9a80;font-size:15px;font-style:italic;text-align:right}
+.sommaire-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.sommaire-card{min-height:205px;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:15px;border:1px solid rgba(187,146,103,.46);background:linear-gradient(155deg,rgba(37,28,22,.93),rgba(8,7,6,.98));transition:transform .25s,border-color .25s,box-shadow .25s}
+.sommaire-card:before{content:"";position:absolute;inset:5px;border:1px solid rgba(191,150,105,.14);pointer-events:none}
+.sommaire-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.22) 35%,rgba(0,0,0,.92) 100%);pointer-events:none}
+.sommaire-card:hover{transform:translateY(-4px);border-color:#d24a3d;box-shadow:0 10px 26px rgba(0,0,0,.28)}
+.sommaire-number{position:absolute;top:12px;left:14px;z-index:2;font:20px "Cinzel",serif;color:#d94a3c}
+.sommaire-art{position:absolute;inset:0;display:grid;place-items:center;font:clamp(52px,6vw,78px) "Noto Serif JP",serif;color:rgba(219,193,158,.18);background:radial-gradient(ellipse at center,rgba(128,57,43,.19),transparent 68%)}
+.sommaire-card:nth-child(3n+2) .sommaire-art{color:rgba(199,199,183,.19);background:radial-gradient(ellipse at center,rgba(112,112,104,.18),transparent 68%)}
+.sommaire-card strong,.sommaire-card small,.sommaire-card>b{position:relative;z-index:2}
+.sommaire-card strong{font:13px "Cinzel",serif;font-weight:400;color:#e2ceb0;padding-right:24px}
+.sommaire-card small{margin-top:5px;font-size:13px;color:#ae9b80;line-height:1.25;padding-right:15px}
+.sommaire-card>b{position:absolute;right:14px;bottom:15px;color:#d54a3b;font-size:18px;font-weight:400}
+.warning-strip{background:rgba(25,10,9,.93)!important}
+.dossier-section{background:linear-gradient(180deg,rgba(214,195,162,.97),rgba(180,157,120,.97)),repeating-linear-gradient(0deg,rgba(69,50,27,.025) 0 1px,transparent 1px 4px)!important}
+.dark-section,.timeline-section,.closing{background-color:rgba(8,7,6,.93)!important}
+.paper-panel{background:rgba(225,207,171,.15)}
+.identity-card{background:linear-gradient(145deg,rgba(34,27,22,.94),rgba(8,8,7,.96))!important}
+.hero-logo{display:none!important}
+@media(max-width:1000px){.sommaire-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){.hero{min-height:610px!important}.japanese-title{font-size:clamp(35px,9vw,56px);letter-spacing:.04em}.hero-name{font-size:clamp(42px,12vw,64px);letter-spacing:.18em;padding-left:.18em}.application-title{letter-spacing:.2em}.sommaire-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.sommaire-card{min-height:180px;padding:12px}.sommaire-card strong{font-size:11px}.sommaire-card small{font-size:11px}.sommaire-note{text-align:left}.sommaire-section{padding-top:58px;padding-bottom:58px}}
+@media(max-width:390px){.sommaire-grid{grid-template-columns:1fr}.sommaire-card{min-height:170px}}
