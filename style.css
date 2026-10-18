@@ -309,3 +309,14 @@ html{scroll-snap-type:none}
 .enter-dossier{left:calc(50% - 18px)!important;top:calc(50% + clamp(155px,22vh,205px))!important;gap:0!important;min-width:205px!important;padding:10px 18px!important;letter-spacing:.2em!important}
 .enter-dossier-arrow{display:none!important}
 @media(max-width:700px){.enter-dossier{left:50%!important;top:calc(50% + 120px)!important;min-width:190px!important}}
+
+
+/* Bouton d'entrée centré sous le visuel, sans décalage horizontal */
+.hero .hero-content-image .enter-dossier{left:50%!important;top:calc(50% + clamp(175px,24vh,225px))!important;transform:translate(-50%,12px)!important}
+.hero .hero-content-image .enter-dossier.is-visible{transform:translate(-50%,0)!important}
+@media(max-width:700px){
+ .hero .hero-content-image .enter-dossier{left:50%!important;top:calc(50% + 125px)!important}
+ .hero .hero-content-image .enter-dossier.is-visible{transform:translate(-50%,0)!important}
+}
+.archive-page-standalone{display:grid!important;min-height:100vh!important}
+.archive-document-body{min-height:100vh}
