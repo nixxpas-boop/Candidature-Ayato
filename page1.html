@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="Dossier Ayato — première pièce des archives confidentielles.">
+  <title>Pièce I — Fiche HRP | Dossier Ayato</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=ayato-separate-page-13">
+</head>
+<body class="archive-document-body">
+  <div class="background-image" aria-hidden="true"></div>
+  <div class="film-grain" aria-hidden="true"></div>
+  <aside class="archive-audio" aria-label="Lecteur audio des archives">
+    <span class="audio-seal" aria-hidden="true">♫</span>
+    <div class="audio-details"><span class="audio-label">BANDE SONORE</span><span class="audio-track">Misty Mountain Cold</span></div>
+    <audio id="ayato-audio" preload="auto" autoplay loop src="asset/Misty%20Mountain%20Cold%20Lyrics.mp3"></audio>
+    <button class="audio-toggle" id="audio-toggle" type="button" aria-label="Lire la musique" title="Lire la musique"><span class="audio-icon" aria-hidden="true">▶</span></button>
+    <span class="audio-status" id="audio-status" aria-live="polite">PRÊT</span>
+  </aside>
+  <main class="archive-page archive-page-standalone">
+    <div class="archive-page-frame">
+      <div class="archive-page-top"><span>DOSSIER AYATO</span><span>PIÈCE N° 01</span></div>
+      <img class="archive-page-title" src="asset/Fiche%20HRP%20aux%20fleurs%20de%20cerisier.png" alt="Fiche hors roleplay (HRP)">
+      <div class="archive-page-content">
+        <p class="archive-page-kicker">ARCHIVES CONFIDENTIELLES · SECTION I</p>
+        <h2>Fiche hors roleplay</h2>
+        <p>Cette pièce du dossier sera complétée avec les informations de candidature.</p>
+        <span class="archive-page-seal">ACCÈS AUTORISÉ</span>
+      </div>
+      <a class="return-cover" href="index.html">← RETOUR À LA COUVERTURE</a>
+      <div class="archive-page-bottom"><span>OWARI NO SERAPH</span><span>FIN DE LA PIÈCE 01</span></div>
+    </div>
+  </main>
+  <script>
+    (() => {
+      const audio = document.getElementById("ayato-audio");
+      const button = document.getElementById("audio-toggle");
+      const icon = button.querySelector(".audio-icon");
+      const status = document.getElementById("audio-status");
+      audio.volume = 0.14;
+      function sync() {
+        const playing = !audio.paused && !audio.ended;
+        icon.textContent = playing ? "Ⅱ" : "▶";
+        button.setAttribute("aria-label", playing ? "Mettre la musique en pause" : "Lire la musique");
+        button.title = playing ? "Mettre la musique en pause" : "Lire la musique";
+        button.classList.toggle("is-playing", playing);
+        status.textContent = playing ? "LECTURE" : "EN PAUSE";
+      }
+      audio.play().catch(() => { status.textContent = "CLIQUE POUR LANCER"; });
+      button.addEventListener("click", async () => {
+        if (!audio.paused) { audio.pause(); return; }
+        try { await audio.play(); } catch (_) { status.textContent = "LECTURE BLOQUÉE"; }
+      });
+      audio.addEventListener("playing", sync);
+      audio.addEventListener("pause", sync);
+      audio.addEventListener("ended", sync);
+      audio.addEventListener("error", () => { status.textContent = "FICHIER INTROUVABLE"; });
+      sync();
+    })();
+  </script>
+</body>
+</html>
