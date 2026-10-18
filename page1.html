@@ -9,9 +9,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=ayato-ruined-city-23">
+  <link rel="stylesheet" href="style.css?v=ayato-fade-transition-24">
 </head>
-<body class="archive-document-body">
+<body class="archive-document-body" class="archive-document-body page-fade-in">
+  <div class="page-transition" aria-hidden="true"></div>
   <div class="background-image" aria-hidden="true"></div>
   <div class="film-grain" aria-hidden="true"></div>
   <aside class="archive-audio" aria-label="Lecteur audio des archives">
@@ -42,6 +43,9 @@
       const icon = button.querySelector(".audio-icon");
       const status = document.getElementById("audio-status");
       const savedTime = Number(sessionStorage.getItem("ayatoAudioTime") || "0");
+      const returnLink = document.querySelector(".return-cover");
+      const transition = document.querySelector(".page-transition");
+      returnLink.addEventListener("click", (event) => { event.preventDefault(); transition.classList.add("is-active"); window.setTimeout(() => { window.location.href = returnLink.href; }, 650); });
       const wasPlaying = sessionStorage.getItem("ayatoAudioPlaying") !== "false";
       audio.volume = 0.06;
       audio.addEventListener("loadedmetadata", () => {
