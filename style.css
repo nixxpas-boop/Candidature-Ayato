@@ -450,3 +450,30 @@ body.page-fade-in .page-transition{
  .page-transition{transition:none!important}
  body.page-fade-in .page-transition{animation:ayatoFadeIn .01ms linear forwards!important}
 }
+
+
+/* Fiche HRP : présentation textuelle à la place du grand visuel décoratif */
+.archive-page-content .hrp-heading{
+  margin:18px auto 12px;color:#e7d7bc;font-family:"Cinzel",serif;
+  font-size:clamp(25px,3.2vw,42px);font-weight:500;letter-spacing:.045em;
+  line-height:1.25;text-transform:uppercase;
+}
+.archive-page-content .hrp-heading span{display:block;margin-top:5px;color:#a93a32;font-size:.56em;letter-spacing:.28em}
+.archive-page-content .hrp-intro{max-width:620px;margin:0 auto 28px;color:#bdb0a0;font-size:1.05rem}
+.hrp-record{
+  width:min(680px,100%);margin:0 auto 22px;padding:22px 26px;
+  border:1px solid rgba(183,145,105,.35);background:rgba(7,7,7,.48);
+  text-align:left;box-sizing:border-box;
+}
+.hrp-record-heading{display:flex;justify-content:space-between;gap:14px;padding-bottom:12px;border-bottom:1px solid rgba(183,145,105,.28);color:#b54b40;font-family:"Cinzel",serif;font-size:.68rem;letter-spacing:.16em}
+.hrp-fields{margin:0}
+.hrp-fields>div{display:grid;grid-template-columns:minmax(150px,.8fr) 1.2fr;gap:18px;padding:15px 0;border-bottom:1px solid rgba(210,195,170,.12)}
+.hrp-fields>div:last-child{border-bottom:0}
+.hrp-fields dt{color:#a99a86;font-family:"Cinzel",serif;font-size:.82rem;letter-spacing:.04em}
+.hrp-fields dd{margin:0;color:#eee1cc;font-family:"Crimson Pro",serif;font-size:1.15rem}
+.hrp-confidential{margin:14px 0 0;color:#887969;font-size:.86rem;font-style:italic}
+@media(max-width:600px){
+ .hrp-record{padding:17px 15px}
+ .hrp-fields>div{grid-template-columns:1fr;gap:5px}
+ .hrp-record-heading{font-size:.58rem;letter-spacing:.08em}
+}
