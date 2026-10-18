@@ -234,3 +234,20 @@ body{margin:0;overflow-x:hidden}
 .chapter-logo-link img{display:block!important;width:100%!important;height:auto!important;max-height:clamp(90px,17vh,160px)!important;object-fit:contain!important}
 @keyframes chapterRiseFade{from{opacity:0;transform:translateY(28px);clip-path:inset(0 0 100% 0)}to{opacity:1;transform:translateY(0);clip-path:inset(0 0 0 0)}}
 @media(max-width:700px){.hero .chapter-reveal{top:calc(100% + 5px)!important;width:94vw!important;max-width:94vw!important}.chapter-reveal-toggle{min-width:205px!important;padding:8px 14px!important;font-size:8px!important}.chapter-logos{flex-direction:column!important;gap:0!important;padding:12px 10px 8px!important}.chapter-logo-link{width:min(90%,340px)!important;flex-basis:auto!important}.chapter-logo-link img{max-height:115px!important}}
+
+
+/* Correctif de placement : les dossiers restent sous le titre d'accueil */
+.hero .hero-content.hero-content-image{overflow:visible!important}
+.hero .hero-content-image .chapter-reveal{position:absolute!important;left:29%!important;top:calc(50% + 155px)!important;right:auto!important;bottom:auto!important;transform:translateX(-50%)!important;width:min(650px,48vw)!important;max-width:48vw!important;margin:0!important;padding:0!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:0!important;z-index:8!important}
+.hero .chapter-reveal-toggle{min-width:235px!important;padding:9px 16px!important;background:rgba(5,5,5,.78)!important;border:1px solid rgba(190,153,111,.32)!important;color:#d7c7ad!important;font:9px var(--serif)!important;letter-spacing:.17em!important;box-shadow:0 6px 24px rgba(0,0,0,.35)!important}
+.hero .chapter-reveal-toggle:hover{background:rgba(5,5,5,.94)!important;border-color:rgba(184,65,53,.7)!important}
+.hero .chapter-logos{width:100%!important;gap:8px!important;padding:14px 8px 8px!important;background:linear-gradient(to bottom,rgba(0,0,0,.92),rgba(0,0,0,.78) 70%,transparent)!important}
+.hero .chapter-logo-link{flex:1 1 0!important;width:50%!important;max-width:310px!important}
+.hero .chapter-logo-link img{max-height:clamp(95px,15vh,145px)!important}
+@media(max-width:700px){
+ .hero .hero-content-image .chapter-reveal{left:50%!important;top:calc(50% + 155px)!important;width:92vw!important;max-width:92vw!important}
+ .hero .chapter-reveal-toggle{min-width:210px!important;font-size:8px!important}
+ .hero .chapter-logos{gap:0!important;padding:10px 8px 6px!important}
+ .hero .chapter-logo-link{width:88%!important;max-width:320px!important;flex:0 1 auto!important}
+ .hero .chapter-logo-link img{max-height:100px!important}
+}
