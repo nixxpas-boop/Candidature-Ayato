@@ -271,3 +271,8 @@ html{scroll-snap-type:y proximity}
 .page-swipe-hint.is-hidden{opacity:0;pointer-events:none}
 @keyframes swipeNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(-5px)}}
 @media(max-width:700px){.archive-page{min-height:calc(100svh - 70px);padding:20px}.archive-page-frame{min-height:72svh;padding:18px}.archive-page-top,.archive-page-bottom{font-size:7px;letter-spacing:.08em}.archive-page-title{max-height:140px}.archive-page-content>p:not(.archive-page-kicker){font-size:17px}.page-swipe-hint{bottom:20px;white-space:nowrap;font-size:7px}}
+
+
+/* Neutralise les styles expérimentaux de navigation, conservés sans effet */
+.archive-page,.page-swipe-hint{display:none!important}
+html{scroll-snap-type:none}
