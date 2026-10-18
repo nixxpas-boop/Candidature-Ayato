@@ -329,3 +329,20 @@ html{scroll-snap-type:none}
  .hero .hero-content-image .enter-dossier{left:50%!important;top:calc(50% + 125px)!important}
  .hero .hero-content-image .enter-dossier.is-visible{transform:translate(-50%,0)!important}
 }
+
+
+/* Finition : bouton légèrement à gauche, aligné sur le centre optique du titre */
+.hero .hero-content-image .enter-dossier{left:46.5%!important}
+@media(max-width:700px){.hero .hero-content-image .enter-dossier{left:50%!important}}
+
+/* Réutiliser exactement le décor gothique de la couverture sur la page HRP */
+.archive-document-body .background-image{
+  background-image:linear-gradient(rgba(5,5,5,.48),rgba(5,5,5,.72)),url("asset/Cité%20gothique%20sous%20la%20lune%20de%20sang.png")!important;
+  background-position:center center!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+  background-attachment:fixed!important;
+  opacity:1!important;
+}
+.archive-document-body{background:#080808;min-height:100vh}
+.archive-document-body .archive-page-standalone{background:transparent!important}
