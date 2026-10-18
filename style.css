@@ -197,26 +197,8 @@ body{margin:0;overflow-x:hidden}
 @media(max-width:600px){.archive-audio{right:9px!important;left:auto!important;top:auto!important;bottom:22px!important;transform:none!important;width:38px!important;padding:9px 4px 15px!important;gap:7px!important}.audio-seal{width:22px;height:22px;flex-basis:22px;font-size:12px}.audio-track{font-size:9px;max-height:85px}.archive-audio .audio-toggle{width:23px;height:23px;flex-basis:23px}}
 
 
-/* Lueur localisée sur les deux traits horizontaux du logo */
-.hero .hero-content-image{isolation:isolate!important}
-.hero .hero-content-image::after{
-  content:"";position:absolute;z-index:2;pointer-events:none;
-  left:10%;right:10%;top:0;bottom:0;
-  background:
-    linear-gradient(90deg,transparent 0%,rgba(255,35,28,0) 12%,rgba(255,45,38,.08) 25%,rgba(255,95,78,.72) 49%,rgba(255,45,38,.10) 72%,rgba(255,35,28,0) 88%,transparent 100%) 50% 42%/100% 2px no-repeat,
-    linear-gradient(90deg,transparent 0%,rgba(255,35,28,0) 15%,rgba(255,65,55,.12) 30%,rgba(255,100,82,.62) 50%,rgba(255,65,55,.12) 70%,rgba(255,35,28,0) 85%,transparent 100%) 50% 65%/100% 2px no-repeat;
-  opacity:.18;filter:blur(1.5px);
-  animation:ayato-lines-breathe 4.2s ease-in-out infinite;
-}
-@keyframes ayato-lines-breathe{
-  0%,100%{opacity:.08;filter:brightness(.8) blur(1.8px)}
-  45%{opacity:.58;filter:brightness(1.2) blur(1px)}
-  58%{opacity:.72;filter:brightness(1.35) blur(.7px)}
-}
-@media(prefers-reduced-motion:reduce){.hero .hero-content-image::after{animation:none!important;opacity:.12}}
-
 /* Particules fines autour du logo : poussière rouge et cendres lumineuses */
-.hero .hero-content-image .logo-particles{position:absolute;inset:8% 12%;z-index:3;pointer-events:none;overflow:visible}
-.logo-particles i{position:absolute;left:var(--x);top:var(--y);width:var(--s);height:var(--s);border-radius:50%;background:var(--c);opacity:0;box-shadow:0 0 5px var(--c),0 0 11px rgba(170,20,20,.25);animation:ayato-dust-float var(--d) ease-in-out var(--delay) infinite}
-@keyframes ayato-dust-float{0%{opacity:0;transform:translate3d(0,12px,0) scale(.55)}18%{opacity:var(--o)}68%{opacity:calc(var(--o)*.72);transform:translate3d(var(--drift),-24px,0) scale(1)}100%{opacity:0;transform:translate3d(calc(var(--drift)*1.4),-42px,0) scale(.35)}}
+.hero .hero-content-image .logo-particles{position:absolute;inset:5% 8%;z-index:3;pointer-events:none;overflow:visible}
+.logo-particles i{position:absolute;left:var(--x);top:var(--y);width:var(--s);height:var(--s);border-radius:50%;background:var(--c);opacity:0;box-shadow:0 0 7px var(--c),0 0 15px var(--c),0 0 24px rgba(170,20,20,.35);animation:ayato-dust-float var(--d) ease-in-out var(--delay) infinite}
+@keyframes ayato-dust-float{0%{opacity:0;transform:translate3d(0,15px,0) scale(.45)}15%{opacity:var(--o)}32%{opacity:calc(var(--o)*1.25);transform:translate3d(calc(var(--drift)*.35),0,0) scale(1.2)}68%{opacity:var(--o);transform:translate3d(var(--drift),-30px,0) scale(1)}100%{opacity:0;transform:translate3d(calc(var(--drift)*1.5),-52px,0) scale(.25)}}
 @media(prefers-reduced-motion:reduce){.logo-particles i{animation:none!important;display:none!important}}
