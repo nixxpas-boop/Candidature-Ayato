@@ -517,3 +517,10 @@ body.page-fade-in .page-transition{
   .archive-document-body .hrp-paper-art{width:100%!important}
   .archive-document-body .hrp-artwork-content{gap:14px!important}
 }
+
+
+/* Fine poussière rouge et cendres sur les deux pages */
+.logo-particles i{position:absolute;left:var(--x);top:var(--y);width:var(--s);height:var(--s);border-radius:50%;background:var(--c);opacity:0;box-shadow:0 0 7px var(--c),0 0 15px var(--c),0 0 24px rgba(170,20,20,.28);animation:ayato-dust-float var(--d) ease-in-out var(--delay) infinite}
+.page-particles{position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.archive-document-body .archive-page-standalone{position:relative;z-index:3}
+@media(prefers-reduced-motion:reduce){.logo-particles i{animation:none!important;display:none!important}}
