@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=ayato-lines-breathe-1">
+  <link rel="stylesheet" href="style.css?v=ayato-particles-1">
 </head>
 <body>
   <div class="background-image" aria-hidden="true"></div>
@@ -28,12 +28,35 @@
       <div class="hero-art" aria-hidden="true"><img src="asset/Cité gothique sous la lune de sang.png" alt=""></div><div class="hero-shade"></div>
       <div class="hero-content hero-content-image">
         <img class="hero-title-image" src="asset/Titre gothique rouge _ Ayato, dossier confidentiel.png" alt="Owari no Seraph — Candidature Ayato, dossier personnel et archives confidentielles">
+        <div class="logo-particles" aria-hidden="true"></div>
       </div>
       <div class="hero-side-note">ARCHIVE N° 001 / ACCÈS RESTREINT</div>
       <div class="hero-bottom"><span>CLASSIFICATION : CONFIDENTIEL</span><span>ARCHIVES — SECTION SPÉCIALE</span><span>ÉDITION 01</span></div>
     </section>
   </main>
 
+  <script>
+    (() => {
+      const layer = document.querySelector(".logo-particles");
+      if (layer && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        const particles = [
+          [8,30,2,5.5,-1,"rgba(210,45,40,.9)",-8,.65],[15,58,2,6.2,-2,"rgba(235,205,185,.9)",7,.55],
+          [23,22,3,7.1,-1.5,"rgba(190,25,25,.95)",-5,.7],[29,70,2,5.8,-3,"rgba(235,205,185,.85)",9,.48],
+          [37,35,2,6.6,-.8,"rgba(220,55,45,.95)",-7,.65],[43,18,2,5.2,-2.2,"rgba(245,220,200,.9)",5,.5],
+          [51,67,3,7.4,-1.4,"rgba(195,25,25,.9)",-9,.7],[58,27,2,6.1,-2.7,"rgba(240,210,190,.9)",6,.55],
+          [64,57,2,5.6,-1.2,"rgba(210,40,35,.95)",-5,.65],[72,20,2,6.8,-3.1,"rgba(235,205,185,.85)",8,.5],
+          [79,65,3,7.2,-1.7,"rgba(190,20,20,.9)",-7,.68],[87,39,2,5.9,-2.5,"rgba(245,220,200,.85)",5,.5],
+          [19,44,1.5,7.5,-3.8,"rgba(220,50,40,.85)",-6,.45],[34,55,1.5,6.4,-4.2,"rgba(240,210,190,.8)",7,.42],
+          [68,43,1.5,7.8,-3.4,"rgba(220,35,30,.9)",-8,.48],[82,29,1.5,6.7,-4.6,"rgba(240,210,190,.8)",6,.45]
+        ];
+        particles.forEach(([x,y,s,d,delay,color,drift,o]) => {
+          const p=document.createElement("i");p.style.setProperty("--x",x+"%");p.style.setProperty("--y",y+"%");
+          p.style.setProperty("--s",s+"px");p.style.setProperty("--d",d+"s");p.style.setProperty("--delay",delay+"s");
+          p.style.setProperty("--c",color);p.style.setProperty("--drift",drift+"px");p.style.setProperty("--o",o);layer.appendChild(p);
+        });
+      }
+    })();
+  </script>
   <script>
     (() => {
       const audio = document.getElementById("ayato-audio");
