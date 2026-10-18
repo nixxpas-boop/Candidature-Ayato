@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=ayato-final-alignment-18">
+  <link rel="stylesheet" href="style.css?v=ayato-volume-sync-19">
 </head>
 <body>
   <div class="background-image" aria-hidden="true"></div>
@@ -44,6 +44,33 @@
 
   </main>
 
+  <script>
+    (() => {
+      const audio = document.getElementById("ayato-audio");
+      const button = document.getElementById("audio-toggle");
+      const icon = button.querySelector(".audio-icon");
+      const status = document.getElementById("audio-status");
+      audio.volume = 0.06;
+      function sync() {
+        const playing = !audio.paused && !audio.ended;
+        icon.textContent = playing ? "Ⅱ" : "▶";
+        button.setAttribute("aria-label", playing ? "Mettre la musique en pause" : "Lire la musique");
+        button.title = playing ? "Mettre la musique en pause" : "Lire la musique";
+        button.classList.toggle("is-playing", playing);
+        status.textContent = playing ? "LECTURE" : "EN PAUSE";
+      }
+      audio.play().catch(() => { status.textContent = "CLIQUE POUR LANCER"; });
+      button.addEventListener("click", async () => {
+        if (!audio.paused) { audio.pause(); return; }
+        try { await audio.play(); } catch (_) { status.textContent = "LECTURE BLOQUÉE"; }
+      });
+      audio.addEventListener("playing", sync);
+      audio.addEventListener("pause", sync);
+      audio.addEventListener("ended", sync);
+      audio.addEventListener("error", () => { status.textContent = "FICHIER INTROUVABLE"; });
+      sync();
+    })();
+  </script>
   <script>
     (() => {
       const logo = document.getElementById("hero-title-clickable");
