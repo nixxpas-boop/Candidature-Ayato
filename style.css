@@ -346,3 +346,10 @@ html{scroll-snap-type:none}
 }
 .archive-document-body{background:#080808;min-height:100vh}
 .archive-document-body .archive-page-standalone{background:transparent!important}
+
+
+/* Dernier alignement selon le repère montré : centre du logo, pas centre de page */
+.hero .hero-content-image .enter-dossier{left:51.2%!important}
+@media(max-width:700px){.hero .hero-content-image .enter-dossier{left:50%!important}}
+
+/* Volume d'ambiance plus doux sur toutes les pages */
