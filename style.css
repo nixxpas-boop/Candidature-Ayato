@@ -388,3 +388,19 @@ html{scroll-snap-type:none}
   opacity:1!important;
 }
 .archive-document-body{overflow-x:hidden;background:#080808!important}
+
+
+/* Même fichier, même échelle et même cadrage que le fond de l'accueil */
+.archive-document-body .background-image{
+  position:fixed!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  background-image:linear-gradient(rgba(5,5,5,.66),rgba(5,5,5,.82)),url("asset/Dossier%20militaire%20dans%20une%20ville%20en%20ruines.png")!important;
+  background-position:center center!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+  background-attachment:fixed!important;
+  filter:grayscale(1)!important;
+  opacity:1!important;
+}
