@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=ayato-volume-sync-19">
+  <link rel="stylesheet" href="style.css?v=ayato-seamless-mono-20">
 </head>
 <body>
   <div class="background-image" aria-hidden="true"></div>
@@ -50,7 +50,17 @@
       const button = document.getElementById("audio-toggle");
       const icon = button.querySelector(".audio-icon");
       const status = document.getElementById("audio-status");
+      const savedTime = Number(sessionStorage.getItem("ayatoAudioTime") || "0");
+      const wasPlaying = sessionStorage.getItem("ayatoAudioPlaying") !== "false";
       audio.volume = 0.06;
+      audio.addEventListener("loadedmetadata", () => {
+        if (Number.isFinite(savedTime) && savedTime > 0 && savedTime < audio.duration) audio.currentTime = savedTime;
+        if (wasPlaying) audio.play().catch(() => { status.textContent = "CLIQUE POUR LANCER"; });
+      }, { once: true });
+      function saveAudioState() {
+        sessionStorage.setItem("ayatoAudioTime", String(audio.currentTime || 0));
+        sessionStorage.setItem("ayatoAudioPlaying", String(!audio.paused && !audio.ended));
+      }
       function sync() {
         const playing = !audio.paused && !audio.ended;
         icon.textContent = playing ? "Ⅱ" : "▶";
@@ -58,8 +68,10 @@
         button.title = playing ? "Mettre la musique en pause" : "Lire la musique";
         button.classList.toggle("is-playing", playing);
         status.textContent = playing ? "LECTURE" : "EN PAUSE";
+        sessionStorage.setItem("ayatoAudioPlaying", String(playing));
       }
-      audio.play().catch(() => { status.textContent = "CLIQUE POUR LANCER"; });
+      audio.addEventListener("timeupdate", () => sessionStorage.setItem("ayatoAudioTime", String(audio.currentTime || 0)));
+      window.addEventListener("pagehide", saveAudioState);
       button.addEventListener("click", async () => {
         if (!audio.paused) { audio.pause(); return; }
         try { await audio.play(); } catch (_) { status.textContent = "LECTURE BLOQUÉE"; }
