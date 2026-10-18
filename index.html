@@ -34,12 +34,53 @@
       <div class="hero-content hero-content-image">
         <img class="hero-title-image" src="asset/Titre gothique rouge _ Ayato, dossier confidentiel.png" alt="Owari no Seraph — Candidature Ayato, dossier personnel et archives confidentielles">
         <div class="logo-particles" aria-hidden="true"></div>
+        <div class="chapter-reveal">
+          <button class="chapter-reveal-toggle" id="chapter-reveal-toggle" type="button" aria-expanded="false" aria-controls="chapter-logos">
+            <span class="chapter-toggle-label">CONSULTER LES DOSSIERS</span>
+            <span class="chapter-toggle-arrow" aria-hidden="true">⌄</span>
+          </button>
+          <div class="chapter-logos" id="chapter-logos" hidden>
+            <a class="chapter-logo-link" href="#fiche-hrp" aria-label="Ouvrir la fiche hors roleplay">
+              <img src="asset/Fiche%20HRP%20aux%20fleurs%20de%20cerisier.png" alt="I. Fiche hors roleplay (HRP)">
+            </a>
+            <a class="chapter-logo-link" href="#dossier-personnage" aria-label="Ouvrir le dossier personnage I : L'Hôte">
+              <img src="asset/Dossier%20personnage%20I%20%E2%80%93%20L%E2%80%99H%C3%B4te%20Katsune.png" alt="II. Dossier personnage I : L'Hôte">
+            </a>
+          </div>
+        </div>
       </div>
       <div class="hero-side-note">ARCHIVE N° 001 / ACCÈS RESTREINT</div>
       <div class="hero-bottom"><span>CLASSIFICATION : CONFIDENTIEL</span><span>ARCHIVES — SECTION SPÉCIALE</span><span>ÉDITION 01</span></div>
     </section>
   </main>
 
+  <script>
+    (() => {
+      const toggle = document.getElementById("chapter-reveal-toggle");
+      const drawer = document.getElementById("chapter-logos");
+      if (!toggle || !drawer) return;
+
+      toggle.addEventListener("click", () => {
+        const open = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!open));
+        drawer.hidden = open;
+        toggle.querySelector(".chapter-toggle-label").textContent = open ? "CONSULTER LES DOSSIERS" : "REFERMER LES DOSSIERS";
+        toggle.querySelector(".chapter-toggle-arrow").textContent = open ? "⌄" : "⌃";
+      });
+
+      drawer.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", (event) => {
+          const target = document.querySelector(link.getAttribute("href"));
+          if (!target) {
+            event.preventDefault();
+            return;
+          }
+          event.preventDefault();
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+    })();
+  </script>
   <script>
     (() => {
       const layer = document.querySelector(".logo-particles");
