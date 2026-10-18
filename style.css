@@ -594,3 +594,9 @@ body.page-fade-in .page-transition{
 .archive-piece-nav span{color:#a94b43}
 .archive-document-body .logo-particles i{opacity:0}
 @media(max-width:620px){.archive-piece-nav{justify-content:center}.archive-piece-nav span{width:100%;text-align:center;order:-1}.archive-piece-nav a{flex:1;text-align:center}}
+
+
+/* Citations et liens dans les pièces du dossier */
+.archive-quote{max-width:780px;margin:18px auto 26px;padding:18px 24px;border-left:2px solid #a8322d;background:rgba(0,0,0,.24);color:#e0cdb2;font-family:"Crimson Pro",serif;font-size:clamp(19px,2vw,25px);font-style:italic;line-height:1.5}
+.archive-inline-link{color:#e1cdb0;text-decoration:none;border-bottom:1px solid rgba(174,54,45,.6)}
+.archive-inline-link:hover{color:#f4e5d0}
