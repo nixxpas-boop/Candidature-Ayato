@@ -415,3 +415,14 @@ html{scroll-snap-type:none}
   filter:grayscale(1)!important;
   opacity:1!important;
 }
+
+
+/* Transition cinématique entre la couverture et les pièces du dossier */
+.page-transition{
+  position:fixed;inset:0;z-index:99999;pointer-events:none;
+  background:#050505;opacity:0;transition:opacity .65s ease;
+}
+.page-transition.is-active{opacity:1;pointer-events:all}
+body.page-fade-in .page-transition{opacity:1;animation:archiveFadeIn .9s ease forwards}
+@keyframes archiveFadeIn{from{opacity:1}to{opacity:0}}
+@media(prefers-reduced-motion:reduce){.page-transition{transition:none}body.page-fade-in .page-transition{animation-duration:.01ms}}
