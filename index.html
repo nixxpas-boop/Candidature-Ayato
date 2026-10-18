@@ -36,7 +36,7 @@
         <div class="logo-particles" aria-hidden="true"></div>
         <div class="chapter-reveal">
           <button class="chapter-reveal-toggle" id="chapter-reveal-toggle" type="button" aria-expanded="false" aria-controls="chapter-logos">
-            <span class="chapter-toggle-label">CONSULTER LES DOSSIERS</span>
+            <span class="chapter-toggle-label">OUVRIR LES DOSSIERS</span>
             <span class="chapter-toggle-arrow" aria-hidden="true">⌄</span>
           </button>
           <div class="chapter-logos" id="chapter-logos" hidden>
@@ -64,7 +64,7 @@
         const open = toggle.getAttribute("aria-expanded") === "true";
         toggle.setAttribute("aria-expanded", String(!open));
         drawer.hidden = open;
-        toggle.querySelector(".chapter-toggle-label").textContent = open ? "CONSULTER LES DOSSIERS" : "REFERMER LES DOSSIERS";
+        toggle.querySelector(".chapter-toggle-label").textContent = open ? "OUVRIR LES DOSSIERS" : "MASQUER LES DOSSIERS";
         toggle.querySelector(".chapter-toggle-arrow").textContent = open ? "⌄" : "⌃";
       });
 
