@@ -583,3 +583,14 @@ body.page-fade-in .page-transition{
  .hrp-page-heading h1{font-size:clamp(17px,5vw,26px)}
  .hrp-page-heading .hrp-heading-index{font-size:clamp(26px,7vw,38px)}
 }
+
+
+/* Navigation entre les pièces du dossier */
+.archive-piece-content{max-width:980px;margin-inline:auto}
+.archive-placeholder{font-size:16px!important;color:#b5a28c!important;font-style:italic;opacity:.88}
+.archive-piece-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:26px 0 8px;padding:16px 0;border-top:1px solid rgba(164,43,38,.42);border-bottom:1px solid rgba(164,43,38,.28);font-family:"Cinzel",serif;font-size:11px;letter-spacing:.1em}
+.archive-piece-nav a{color:#d8c6ad;text-decoration:none;padding:10px 12px;border:1px solid rgba(164,43,38,.4);background:rgba(0,0,0,.28);transition:background .25s ease,border-color .25s ease,color .25s ease}
+.archive-piece-nav a:hover{color:#fff0dc;border-color:rgba(205,62,53,.8);background:rgba(115,15,18,.22)}
+.archive-piece-nav span{color:#a94b43}
+.archive-document-body .logo-particles i{opacity:0}
+@media(max-width:620px){.archive-piece-nav{justify-content:center}.archive-piece-nav span{width:100%;text-align:center;order:-1}.archive-piece-nav a{flex:1;text-align:center}}
