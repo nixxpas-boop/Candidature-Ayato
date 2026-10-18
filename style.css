@@ -353,3 +353,8 @@ html{scroll-snap-type:none}
 @media(max-width:700px){.hero .hero-content-image .enter-dossier{left:50%!important}}
 
 /* Volume d'ambiance plus doux sur toutes les pages */
+
+
+/* Placement définitif du bouton d'après le repère dessiné */
+.hero .hero-content-image .enter-dossier{left:calc(50% - 40px)!important}
+@media(max-width:700px){.hero .hero-content-image .enter-dossier{left:50%!important}}
