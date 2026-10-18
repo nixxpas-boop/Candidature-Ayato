@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=ayato-audio-autoplay-1">
+  <link rel="stylesheet" href="style.css?v=ayato-player-sync-2">
 </head>
 <body>
   <div class="background-image" aria-hidden="true"></div>
@@ -69,31 +69,51 @@
       const button = document.getElementById("audio-toggle");
       const icon = button.querySelector(".audio-icon");
       const status = document.getElementById("audio-status");
+      let userPaused = false;
       audio.volume = 0.14;
-      audio.autoplay = true;
-      audio.muted = true;
-      audio.play().then(() => {
-        audio.muted = false;
-        audio.volume = 0.14;
-        status.textContent = "LECTURE";
-      }).catch(() => {
+      audio.muted = false;
+
+      const syncPlayer = () => {
+        const playing = !audio.paused && !audio.ended;
+        icon.textContent = playing ? "Ⅱ" : "▶";
+        button.setAttribute("aria-label", playing ? "Mettre la musique en pause" : "Lire la musique");
+        button.title = playing ? "Mettre la musique en pause" : "Lire la musique";
+        button.classList.toggle("is-playing", playing);
+        status.textContent = playing ? "LECTURE" : "EN PAUSE";
+      };
+
+      // Tentative d'autoplay avec son ; les navigateurs peuvent la refuser.
+      audio.play().catch(() => {
+        status.textContent = "CLIQUE POUR LANCER";
+        syncPlayer();
         status.textContent = "CLIQUE POUR LANCER";
       });
-      const startAfterInteraction = async () => {
-        if (audio.paused) { try { audio.muted = false; audio.volume = 0.14; await audio.play(); status.textContent = "LECTURE"; } catch (e) { status.textContent = "CLIQUE POUR LANCER"; } }
-        window.removeEventListener("pointerdown", startAfterInteraction);
-        window.removeEventListener("keydown", startAfterInteraction);
+
+      const startOnFirstInteraction = async () => {
+        if (!userPaused && audio.paused) {
+          try { await audio.play(); } catch (_) { status.textContent = "CLIQUE POUR LANCER"; }
+        }
       };
-      window.addEventListener("pointerdown", startAfterInteraction, { once: true });
-      window.addEventListener("keydown", startAfterInteraction, { once: true });
-      button.addEventListener("click", async () => {
+      document.addEventListener("pointerdown", startOnFirstInteraction, { once: true });
+      document.addEventListener("keydown", startOnFirstInteraction, { once: true });
+
+      button.addEventListener("click", async (event) => {
+        event.stopPropagation();
         if (audio.paused) {
-          try { await audio.play(); } catch (e) { status.textContent = "INDISPONIBLE"; }
-        } else { audio.pause(); }
+          userPaused = false;
+          try { await audio.play(); } catch (_) { status.textContent = "INDISPONIBLE"; }
+        } else {
+          userPaused = true;
+          audio.pause();
+        }
+        syncPlayer();
       });
-      audio.addEventListener("play", () => { icon.textContent = "Ⅱ"; button.setAttribute("aria-label", "Mettre la musique en pause"); button.title = "Mettre la musique en pause"; status.textContent = "LECTURE"; button.classList.add("is-playing"); });
-      audio.addEventListener("pause", () => { icon.textContent = "▶"; button.setAttribute("aria-label", "Lire la musique"); button.title = "Lire la musique"; status.textContent = "EN PAUSE"; button.classList.remove("is-playing"); });
+
+      audio.addEventListener("play", syncPlayer);
+      audio.addEventListener("pause", syncPlayer);
+      audio.addEventListener("ended", syncPlayer);
       audio.addEventListener("error", () => { status.textContent = "FICHIER INTROUVABLE"; });
+      syncPlayer();
     })();
   </script>
 </body>
