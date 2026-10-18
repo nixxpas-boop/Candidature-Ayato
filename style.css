@@ -303,3 +303,9 @@ html{scroll-snap-type:none}
 
 /* Reactiver explicitement la première page après le retrait de l'ancien essai */
 .archive-page{display:grid!important}
+
+
+/* Ajustement final du bouton : centré sous le logo, sans flèche */
+.enter-dossier{left:calc(50% - 18px)!important;top:calc(50% + clamp(155px,22vh,205px))!important;gap:0!important;min-width:205px!important;padding:10px 18px!important;letter-spacing:.2em!important}
+.enter-dossier-arrow{display:none!important}
+@media(max-width:700px){.enter-dossier{left:50%!important;top:calc(50% + 120px)!important;min-width:190px!important}}
