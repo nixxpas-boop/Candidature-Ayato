@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="Dossier Ayato — Pièce V — Inventaire et équipement.">
+  <title>Pièce V — Inventaire et équipement | Dossier Ayato</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=ayato-multipage-34">
+</head>
+<body class="archive-document-body">
+  <div class="background-image" aria-hidden="true"></div>
+  <div class="logo-particles page-particles" aria-hidden="true"></div>
+  <div class="film-grain" aria-hidden="true"></div>
+  <aside class="archive-audio" aria-label="Lecteur audio des archives">
+    <span class="audio-seal" aria-hidden="true">♫</span>
+    <div class="audio-details"><span class="audio-label">BANDE SONORE</span><span class="audio-track">Misty Mountain Cold</span></div>
+    <audio id="ayato-audio" preload="auto" autoplay loop src="asset/Misty%20Mountain%20Cold%20Lyrics.mp3"></audio>
+    <button class="audio-toggle" id="audio-toggle" type="button" aria-label="Lire la musique" title="Lire la musique"><span class="audio-icon" aria-hidden="true">▶</span></button>
+    <span class="audio-status" id="audio-status" aria-live="polite">PRÊT</span>
+  </aside>
+  <main class="archive-page archive-page-standalone">
+    <div class="archive-page-frame">
+      <div class="archive-page-top"><span>DOSSIER AYATO</span><span>PIÈCE N° 05</span></div>
+      
+      <div class="archive-page-content hrp-live-content archive-piece-content">
+        <header class="hrp-page-heading"><span class="hrp-heading-index">Ⅴ.</span><h1>INVENTAIRE & ÉQUIPEMENT </h1></header>
+        <section class="hrp-presentation-panel"><p class="hrp-section-label"><span>00</span> NOTE D’ARCHIVE</p><p>Cette dernière pièce permettra de répertorier l’équipement et les objets importants, sans surcharger la fiche du personnage.</p></section>
+        <section class="hrp-profile-panel"><p class="hrp-section-label"><span>01</span> ÉQUIPEMENT</p><div class="hrp-profile-grid"><article class="hrp-field"><span class="hrp-field-index">A — ARCHIVE</span><span class="hrp-field-name">Armes et protections</span><strong class="archive-placeholder">À compléter selon la candidature</strong></article><article class="hrp-field"><span class="hrp-field-index">B — ARCHIVE</span><span class="hrp-field-name">Objets personnels</span><strong class="archive-placeholder">À compléter selon la candidature</strong></article></div></section>
+<section class="hrp-profile-panel"><p class="hrp-section-label"><span>02</span> RESSOURCES</p><div class="hrp-profile-grid"><article class="hrp-field"><span class="hrp-field-index">A — ARCHIVE</span><span class="hrp-field-name">Objets importants</span><strong class="archive-placeholder">À compléter selon la candidature</strong></article><article class="hrp-field"><span class="hrp-field-index">B — ARCHIVE</span><span class="hrp-field-name">Ressources ou consommables</span><strong class="archive-placeholder">À compléter selon la candidature</strong></article></div></section>
+<section class="hrp-profile-panel"><p class="hrp-section-label"><span>03</span> NOTES D’ARCHIVE</p><div class="hrp-profile-grid"><article class="hrp-field"><span class="hrp-field-index">A — ARCHIVE</span><span class="hrp-field-name">Restrictions éventuelles</span><strong class="archive-placeholder">À compléter selon la candidature</strong></article><article class="hrp-field"><span class="hrp-field-index">B — ARCHIVE</span><span class="hrp-field-name">Éléments à valider</span><strong class="archive-placeholder">À compléter selon la candidature</strong></article></div></section>
+        <nav class="archive-piece-nav" aria-label="Navigation entre les pièces"><a href="page4.html">← Pièce précédente</a><span>PIÈCE 05 / 05</span><a href="index.html">Retour à la couverture</a></nav>
+      </div>
+      <a class="return-cover" href="index.html">← RETOUR À LA COUVERTURE</a>
+      <div class="archive-page-bottom"><span>OWARI NO SERAPH</span><span>FIN DE LA PIÈCE 05</span></div>
+    </div>
+  </main>
+  <script>
+    (() => {
+      const audio = document.getElementById("ayato-audio");
+      const button = document.getElementById("audio-toggle");
+      const icon = button.querySelector(".audio-icon");
+      const status = document.getElementById("audio-status");
+      const savedTime = Number(sessionStorage.getItem("ayatoAudioTime") || "0");
+      const returnLink = document.querySelector(".return-cover");
+
+      const wasPlaying = sessionStorage.getItem("ayatoAudioPlaying") !== "false";
+      audio.volume = 0.06;
+      audio.addEventListener("loadedmetadata", () => {
+        if (Number.isFinite(savedTime) && savedTime > 0 && savedTime < audio.duration) audio.currentTime = savedTime;
+        if (wasPlaying) audio.play().catch(() => { status.textContent = "CLIQUE POUR LANCER"; });
+      }, { once: true });
+      function saveAudioState() {
+        sessionStorage.setItem("ayatoAudioTime", String(audio.currentTime || 0));
+        sessionStorage.setItem("ayatoAudioPlaying", String(!audio.paused && !audio.ended));
+      }
+      function sync() {
+        const playing = !audio.paused && !audio.ended;
+        icon.textContent = playing ? "Ⅱ" : "▶";
+        button.setAttribute("aria-label", playing ? "Mettre la musique en pause" : "Lire la musique");
+        button.title = playing ? "Mettre la musique en pause" : "Lire la musique";
+        button.classList.toggle("is-playing", playing);
+        status.textContent = playing ? "LECTURE" : "EN PAUSE";
+        sessionStorage.setItem("ayatoAudioPlaying", String(playing));
+      }
+      audio.addEventListener("timeupdate", () => sessionStorage.setItem("ayatoAudioTime", String(audio.currentTime || 0)));
+      window.addEventListener("pagehide", saveAudioState);
+      button.addEventListener("click", async () => {
+        if (!audio.paused) { audio.pause(); return; }
+        try { await audio.play(); } catch (_) { status.textContent = "LECTURE BLOQUÉE"; }
+      });
+      audio.addEventListener("playing", sync);
+      audio.addEventListener("pause", sync);
+      audio.addEventListener("ended", sync);
+      audio.addEventListener("error", () => { status.textContent = "FICHIER INTROUVABLE"; });
+      sync();
+    })();
+  </script>
+  <script>
+    (() => {
+      const layer = document.querySelector(".logo-particles");
+      if (!layer) return;
+      const colors = ["#a31319", "#d7c8b1", "#eee5d7", "#6e0d13"];
+      for (let i = 0; i < 42; i++) {
+        const p = document.createElement("i");
+        p.style.setProperty("--x", (Math.random() * 100) + "%");
+        p.style.setProperty("--y", (Math.random() * 100) + "%");
+        p.style.setProperty("--s", (1.5 + Math.random() * 3.2) + "px");
+        p.style.setProperty("--c", colors[Math.floor(Math.random() * colors.length)]);
+        p.style.setProperty("--d", (5 + Math.random() * 8) + "s");
+        p.style.setProperty("--delay", (-Math.random() * 12) + "s");
+        p.style.setProperty("--o", (0.2 + Math.random() * 0.55).toFixed(2));
+        p.style.setProperty("--drift", (-24 + Math.random() * 48) + "px");
+        layer.appendChild(p);
+      }
+    })();
+  </script>
+
+</body>
+</html>
