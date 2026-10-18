@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=ayato-player-sync-2">
+  <link rel="stylesheet" href="style.css?v=ayato-player-clean-3">
 </head>
 <body>
   <div class="background-image" aria-hidden="true"></div>
@@ -17,10 +17,15 @@
 
   <aside class="archive-audio" aria-label="Lecteur audio des archives">
     <span class="audio-seal" aria-hidden="true">♫</span>
-    <div class="audio-details"><span class="audio-label">BANDE SONORE</span><span class="audio-track">Misty Mountain Cold</span></div>
-    <audio id="ayato-audio" preload="auto" autoplay loop src="asset/Misty%20Mountain%20Cold%20Lyrics.mp3"></audio>
-    <button class="audio-toggle" id="audio-toggle" type="button" aria-label="Lire la musique" title="Lire la musique"><span class="audio-icon">▶</span></button>
-    <span class="audio-status" id="audio-status">EN PAUSE</span>
+    <div class="audio-details">
+      <span class="audio-label">BANDE SONORE</span>
+      <span class="audio-track">Misty Mountain Cold</span>
+    </div>
+    <audio id="ayato-audio" preload="auto" loop src="asset/Misty%20Mountain%20Cold%20Lyrics.mp3"></audio>
+    <button class="audio-toggle" id="audio-toggle" type="button" aria-label="Lire la musique" title="Lire la musique">
+      <span class="audio-icon" aria-hidden="true">▶</span>
+    </button>
+    <span class="audio-status" id="audio-status" aria-live="polite">PRÊT</span>
   </aside>
 
   <main class="site-shell is-visible" id="site">
@@ -69,51 +74,46 @@
       const button = document.getElementById("audio-toggle");
       const icon = button.querySelector(".audio-icon");
       const status = document.getElementById("audio-status");
-      let userPaused = false;
-      audio.volume = 0.14;
-      audio.muted = false;
 
-      const syncPlayer = () => {
+      audio.volume = 0.14;
+
+      function updatePlayer() {
         const playing = !audio.paused && !audio.ended;
         icon.textContent = playing ? "Ⅱ" : "▶";
         button.setAttribute("aria-label", playing ? "Mettre la musique en pause" : "Lire la musique");
         button.title = playing ? "Mettre la musique en pause" : "Lire la musique";
         button.classList.toggle("is-playing", playing);
         status.textContent = playing ? "LECTURE" : "EN PAUSE";
-      };
+      }
 
-      // Tentative d'autoplay avec son ; les navigateurs peuvent la refuser.
+      // Le navigateur peut bloquer l'autoplay avec son : le bouton reste alors disponible.
       audio.play().catch(() => {
         status.textContent = "CLIQUE POUR LANCER";
-        syncPlayer();
-        status.textContent = "CLIQUE POUR LANCER";
       });
 
-      const startOnFirstInteraction = async () => {
-        if (!userPaused && audio.paused) {
-          try { await audio.play(); } catch (_) { status.textContent = "CLIQUE POUR LANCER"; }
-        }
-      };
-      document.addEventListener("pointerdown", startOnFirstInteraction, { once: true });
-      document.addEventListener("keydown", startOnFirstInteraction, { once: true });
-
-      button.addEventListener("click", async (event) => {
-        event.stopPropagation();
-        if (audio.paused) {
-          userPaused = false;
-          try { await audio.play(); } catch (_) { status.textContent = "INDISPONIBLE"; }
-        } else {
-          userPaused = true;
+      button.addEventListener("click", async () => {
+        if (!audio.paused) {
           audio.pause();
+          return;
         }
-        syncPlayer();
+
+        try {
+          await audio.play();
+        } catch (error) {
+          status.textContent = "LECTURE BLOQUÉE";
+        }
       });
 
-      audio.addEventListener("play", syncPlayer);
-      audio.addEventListener("pause", syncPlayer);
-      audio.addEventListener("ended", syncPlayer);
-      audio.addEventListener("error", () => { status.textContent = "FICHIER INTROUVABLE"; });
-      syncPlayer();
+      audio.addEventListener("playing", updatePlayer);
+      audio.addEventListener("pause", updatePlayer);
+      audio.addEventListener("ended", updatePlayer);
+      audio.addEventListener("error", () => {
+        status.textContent = "FICHIER INTROUVABLE";
+        icon.textContent = "▶";
+        button.classList.remove("is-playing");
+      });
+
+      updatePlayer();
     })();
   </script>
 </body>
