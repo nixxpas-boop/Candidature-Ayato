@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=ayato-particles-3">
+  <link rel="stylesheet" href="style.css?v=ayato-audio-autoplay-1">
 </head>
 <body>
   <div class="background-image" aria-hidden="true"></div>
@@ -71,9 +71,16 @@
       const status = document.getElementById("audio-status");
       audio.volume = 0.14;
       audio.autoplay = true;
-      audio.play().catch(() => { status.textContent = "CLIQUE POUR LANCER"; });
+      audio.muted = true;
+      audio.play().then(() => {
+        audio.muted = false;
+        audio.volume = 0.14;
+        status.textContent = "LECTURE";
+      }).catch(() => {
+        status.textContent = "CLIQUE POUR LANCER";
+      });
       const startAfterInteraction = async () => {
-        if (audio.paused) { try { await audio.play(); } catch (e) { status.textContent = "CLIQUE POUR LANCER"; } }
+        if (audio.paused) { try { audio.muted = false; audio.volume = 0.14; await audio.play(); status.textContent = "LECTURE"; } catch (e) { status.textContent = "CLIQUE POUR LANCER"; } }
         window.removeEventListener("pointerdown", startAfterInteraction);
         window.removeEventListener("keydown", startAfterInteraction);
       };
