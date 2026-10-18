@@ -358,3 +358,16 @@ html{scroll-snap-type:none}
 /* Placement définitif du bouton d'après le repère dessiné */
 .hero .hero-content-image .enter-dossier{left:calc(50% - 40px)!important}
 @media(max-width:700px){.hero .hero-content-image .enter-dossier{left:50%!important}}
+
+
+/* Même cadrage que la couverture : la cité reste au même endroit sur la page suivante */
+.archive-document-body .background-image{
+  background-image:linear-gradient(rgba(5,5,5,.45),rgba(5,5,5,.66)),url("asset/Cit%C3%A9%20gothique%20sous%20la%20lune%20de%20sang.png")!important;
+  background-position:center 42%!important;
+  background-size:100% clamp(590px,78vh,800px)!important;
+  background-repeat:no-repeat!important;
+  background-attachment:fixed!important;
+  filter:grayscale(1)!important;
+  opacity:1!important;
+}
+.archive-document-body .archive-page-standalone{background:transparent!important}
