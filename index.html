@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=ayato-particles-1">
+  <link rel="stylesheet" href="style.css?v=ayato-particles-2">
 </head>
 <body>
   <div class="background-image" aria-hidden="true"></div>
@@ -18,7 +18,7 @@
   <aside class="archive-audio" aria-label="Lecteur audio des archives">
     <span class="audio-seal" aria-hidden="true">♫</span>
     <div class="audio-details"><span class="audio-label">BANDE SONORE</span><span class="audio-track">Misty Mountain Cold</span></div>
-    <audio id="ayato-audio" preload="metadata" loop src="asset/Misty%20Mountain%20Cold%20Lyrics.mp3"></audio>
+    <audio id="ayato-audio" preload="auto" autoplay loop src="asset/Misty%20Mountain%20Cold%20Lyrics.mp3"></audio>
     <button class="audio-toggle" id="audio-toggle" type="button" aria-label="Lire la musique" title="Lire la musique"><span class="audio-icon">▶</span></button>
     <span class="audio-status" id="audio-status">EN PAUSE</span>
   </aside>
@@ -64,6 +64,8 @@
       const icon = button.querySelector(".audio-icon");
       const status = document.getElementById("audio-status");
       audio.volume = 0.14;
+      audio.autoplay = true;
+      audio.play().catch(() => { status.textContent = "CLIQUE POUR LANCER"; });
       button.addEventListener("click", async () => {
         if (audio.paused) {
           try { await audio.play(); } catch (e) { status.textContent = "INDISPONIBLE"; }
