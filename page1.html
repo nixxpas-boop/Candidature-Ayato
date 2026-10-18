@@ -9,10 +9,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=ayato-hrp-clean-layout-30">
+  <link rel="stylesheet" href="style.css?v=ayato-particles-both-31">
 </head>
 <body class="archive-document-body">
   <div class="background-image" aria-hidden="true"></div>
+  <div class="logo-particles page-particles" aria-hidden="true"></div>
   <div class="film-grain" aria-hidden="true"></div>
   <aside class="archive-audio" aria-label="Lecteur audio des archives">
     <span class="audio-seal" aria-hidden="true">♫</span>
@@ -74,5 +75,25 @@
       sync();
     })();
   </script>
+  <script>
+    (() => {
+      const layer = document.querySelector(".logo-particles");
+      if (!layer) return;
+      const colors = ["#a31319", "#d7c8b1", "#eee5d7", "#6e0d13"];
+      for (let i = 0; i < 42; i++) {
+        const p = document.createElement("i");
+        p.style.setProperty("--x", (Math.random() * 100) + "%");
+        p.style.setProperty("--y", (Math.random() * 100) + "%");
+        p.style.setProperty("--s", (1.5 + Math.random() * 3.2) + "px");
+        p.style.setProperty("--c", colors[Math.floor(Math.random() * colors.length)]);
+        p.style.setProperty("--d", (5 + Math.random() * 8) + "s");
+        p.style.setProperty("--delay", (-Math.random() * 12) + "s");
+        p.style.setProperty("--o", (0.2 + Math.random() * 0.55).toFixed(2));
+        p.style.setProperty("--drift", (-24 + Math.random() * 48) + "px");
+        layer.appendChild(p);
+      }
+    })();
+  </script>
+
 </body>
 </html>
