@@ -404,3 +404,14 @@ html{scroll-snap-type:none}
   filter:grayscale(1)!important;
   opacity:1!important;
 }
+
+
+/* Fond dédié à la première pièce : ville en ruines sous une lune rouge */
+.archive-document-body .background-image{
+  background-image:linear-gradient(rgba(5,5,5,.48),rgba(5,5,5,.68)),url("asset/Ville%20en%20ruines%20sous%20une%20lune%20rouge.png")!important;
+  background-position:center center!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+  filter:grayscale(1)!important;
+  opacity:1!important;
+}
