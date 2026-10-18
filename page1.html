@@ -59,7 +59,7 @@
       const returnLink = document.querySelector(".return-cover");
 
       const wasPlaying = sessionStorage.getItem("ayatoAudioPlaying") !== "false";
-      audio.volume = 0.06;
+      audio.volume = 0.02;
       audio.addEventListener("loadedmetadata", () => {
         if (Number.isFinite(savedTime) && savedTime > 0 && savedTime < audio.duration) audio.currentTime = savedTime;
         if (wasPlaying) audio.play().catch(() => { status.textContent = "CLIQUE POUR LANCER"; });
