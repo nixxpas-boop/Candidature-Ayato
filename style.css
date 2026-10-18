@@ -300,3 +300,6 @@ html{scroll-snap-type:none}
 .return-cover{border:1px solid rgba(190,153,111,.3);background:rgba(0,0,0,.55);color:#c9b89e;padding:8px 12px;font:9px var(--serif);letter-spacing:.12em;cursor:pointer}
 .return-cover:hover{border-color:#a94337;color:#f0dfc6}
 @media(max-width:700px){.enter-dossier{top:calc(50% + 115px);min-width:195px;font-size:8px}.archive-page{padding:18px}.archive-page-frame{min-height:80vh;padding:16px}.archive-page-top,.archive-page-bottom{font-size:7px;letter-spacing:.08em}.archive-page-title{max-height:140px}.archive-page-content>p:not(.archive-page-kicker){font-size:17px}}
+
+/* Reactiver explicitement la première page après le retrait de l'ancien essai */
+.archive-page{display:grid!important}
