@@ -288,62 +288,18 @@ body{margin:0;overflow-x:hidden}
 }
 
 
-/* Lueur animée sur le logo : respiration lumineuse, sans halo rouge fixe ni balayage */
-.hero .hero-content-image::after{
-  content:none!important;
-  display:none!important;
-}
+/* Animation des traits rouges du titre : variation de luminosité, sans halo extérieur */
 .hero .hero-content-image .hero-title-image{
-  filter:none!important;
-  animation:ayato-text-glow 3.2s ease-in-out infinite!important;
+  animation:ayato-ink-glimmer 4.8s ease-in-out infinite!important;
   will-change:filter;
 }
-@keyframes ayato-text-glow{
-  0%,100%{
-    filter:brightness(1) drop-shadow(0 0 0 rgba(255,35,25,0));
-  }
-  35%{
-    filter:brightness(1.04) drop-shadow(0 0 2px rgba(255,45,35,.28));
-  }
-  55%{
-    filter:brightness(1.14) drop-shadow(0 0 5px rgba(255,55,40,.65)) drop-shadow(0 0 10px rgba(190,0,0,.28));
-  }
-  72%{
-    filter:brightness(1.06) drop-shadow(0 0 2px rgba(255,45,35,.3));
-  }
+@keyframes ayato-ink-glimmer{
+  0%,100%{filter:brightness(1) contrast(1)}
+  22%{filter:brightness(1.035) contrast(1.015)}
+  46%{filter:brightness(1.13) contrast(1.04)}
+  58%{filter:brightness(1.16) contrast(1.05)}
+  78%{filter:brightness(1.04) contrast(1.015)}
 }
 @media(prefers-reduced-motion:reduce){
   .hero .hero-content-image .hero-title-image{animation:none!important;filter:none!important}
-}
-
-
-
-
-/* Lecteur audio vertical, monochrome et très discret */
-.archive-audio{
-  position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:50;
-  display:flex;flex-direction:column;align-items:center;gap:9px;
-  width:44px;padding:12px 5px 17px;box-sizing:border-box;
-  color:rgba(235,235,235,.78);
-  background:rgba(8,8,8,.42);
-  border:1px solid rgba(230,230,230,.12);
-  box-shadow:0 5px 22px rgba(0,0,0,.22);
-  backdrop-filter:blur(5px);font-family:'Cinzel',serif;
-  opacity:.62;transition:opacity .25s ease,background .25s ease,border-color .25s ease;
-}
-.archive-audio:hover,.archive-audio:focus-within{
-  opacity:.96;background:rgba(8,8,8,.72);border-color:rgba(230,230,230,.28);
-}
-.audio-seal{display:grid;place-items:center;width:25px;height:25px;flex:0 0 25px;border:1px solid rgba(235,235,235,.24);border-radius:50%;color:#ddd;font-size:13px}
-.audio-details{display:flex;flex-direction:column;align-items:center;gap:5px;min-width:0}
-.audio-label{font-size:6px;letter-spacing:1.3px;color:rgba(235,235,235,.56);writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap}
-.audio-track{font-family:'Crimson Pro',serif;font-size:10px;line-height:1.2;color:rgba(245,245,245,.72);writing-mode:vertical-rl;transform:rotate(180deg);max-height:115px;overflow:hidden;text-align:center}
-.audio-toggle{width:26px;height:26px;flex:0 0 26px;border:1px solid rgba(235,235,235,.28);border-radius:50%;background:rgba(255,255,255,.035);color:#eee;cursor:pointer;font-size:9px;transition:background .2s,border-color .2s}
-.audio-toggle:hover,.audio-toggle.is-playing{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.58)}
-.audio-status{position:absolute;bottom:4px;left:0;right:0;text-align:center;font:5px/1 'Cinzel',serif;letter-spacing:.8px;color:rgba(230,230,230,.45)}
-@media(max-width:600px){
- .archive-audio{right:9px;top:auto;bottom:22px;transform:none;width:38px;padding:9px 4px 15px;gap:7px}
- .audio-seal{width:22px;height:22px;flex-basis:22px;font-size:12px}
- .audio-track{font-size:9px;max-height:85px}
- .audio-toggle{width:23px;height:23px;flex-basis:23px}
 }
