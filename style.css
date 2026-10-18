@@ -426,3 +426,27 @@ html{scroll-snap-type:none}
 body.page-fade-in .page-transition{opacity:1;animation:archiveFadeIn .9s ease forwards}
 @keyframes archiveFadeIn{from{opacity:1}to{opacity:0}}
 @media(prefers-reduced-motion:reduce){.page-transition{transition:none}body.page-fade-in .page-transition{animation-duration:.01ms}}
+
+
+/* Transition simplifiée et stable : une seule animation d'entrée/sortie */
+.page-transition{
+  position:fixed!important;inset:0!important;z-index:99999!important;
+  background:#030303!important;opacity:0;visibility:hidden;
+  pointer-events:none;transition:opacity .45s ease,visibility .45s ease!important;
+  animation:none!important;
+}
+.page-transition.is-active{
+  opacity:1!important;visibility:visible!important;pointer-events:all!important;
+}
+body.page-fade-in .page-transition{
+  opacity:1;visibility:visible;animation:ayatoFadeIn .65s ease forwards!important;
+}
+@keyframes ayatoFadeIn{
+  0%{opacity:1;visibility:visible}
+  99%{visibility:visible}
+  100%{opacity:0;visibility:hidden}
+}
+@media(prefers-reduced-motion:reduce){
+ .page-transition{transition:none!important}
+ body.page-fade-in .page-transition{animation:ayatoFadeIn .01ms linear forwards!important}
+}
