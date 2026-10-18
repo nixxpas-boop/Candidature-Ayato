@@ -40,12 +40,12 @@
             <span class="chapter-toggle-arrow" aria-hidden="true">⌄</span>
           </button>
           <div class="chapter-logos" id="chapter-logos" hidden>
-            <a class="chapter-logo-link" href="#fiche-hrp" aria-label="Ouvrir la fiche hors roleplay">
+            <div class="chapter-logo-link">
               <img src="asset/Fiche%20HRP%20aux%20fleurs%20de%20cerisier.png" alt="I. Fiche hors roleplay (HRP)">
-            </a>
-            <a class="chapter-logo-link" href="#dossier-personnage" aria-label="Ouvrir le dossier personnage I : L'Hôte">
+            </div>
+            <div class="chapter-logo-link">
               <img src="asset/Dossier%20personnage%20I%20%E2%80%93%20L%E2%80%99H%C3%B4te%20Katsune.png" alt="II. Dossier personnage I : L'Hôte">
-            </a>
+            </div>
           </div>
         </div>
       </div>
@@ -68,17 +68,6 @@
         toggle.querySelector(".chapter-toggle-arrow").textContent = open ? "⌄" : "⌃";
       });
 
-      drawer.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", (event) => {
-          const target = document.querySelector(link.getAttribute("href"));
-          if (!target) {
-            event.preventDefault();
-            return;
-          }
-          event.preventDefault();
-          target.scrollIntoView({ behavior: "smooth", block: "start" });
-        });
-      });
     })();
   </script>
   <script>
