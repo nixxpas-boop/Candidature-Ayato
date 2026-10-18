@@ -9,6 +9,65 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=ayato-click-cover-9">
+</head>
+<body>
+  <div class="background-image" aria-hidden="true"></div>
+  <div class="film-grain" aria-hidden="true"></div>
+
+  <aside class="archive-audio" aria-label="Lecteur audio des archives">
+    <span class="audio-seal" aria-hidden="true">♫</span>
+    <div class="audio-details">
+      <span class="audio-label">BANDE SONORE</span>
+      <span class="audio-track">Misty Mountain Cold</span>
+    </div>
+    <audio id="ayato-audio" preload="auto" autoplay loop src="asset/Misty%20Mountain%20Cold%20Lyrics.mp3"></audio>
+    <button class="audio-toggle" id="audio-toggle" type="button" aria-label="Lire la musique" title="Lire la musique">
+      <span class="audio-icon" aria-hidden="true">▶</span>
+    </button>
+    <span class="audio-status" id="audio-status" aria-live="polite">PRÊT</span>
+  </aside>
+
+  <main class="site-shell is-visible" id="site">
+    <section class="hero" id="accueil">
+      <div class="hero-art" aria-hidden="true"><img src="asset/Cité gothique sous la lune de sang.png" alt=""></div><div class="hero-shade"></div>
+      <div class="hero-content hero-content-image">
+        <img class="hero-title-image hero-title-clickable" id="hero-title-clickable" src="asset/Titre gothique rouge _ Ayato, dossier confidentiel.png" alt="Owari no Seraph — Candidature Ayato, cliquer pour ouvrir le dossier" role="button" tabindex="0" aria-label="Ouvrir la première page du dossier">
+        <div class="logo-particles" aria-hidden="true"></div>
+        <button class="enter-dossier" id="enter-dossier" type="button" aria-controls="fiche-hrp">
+          <span>OUVRIR LE DOSSIER</span><span class="enter-dossier-arrow" aria-hidden="true">↓</span>
+        </button>
+      </div>
+      <div class="hero-side-note">ARCHIVE N° 001 / ACCÈS RESTREINT</div>
+      <div class="hero-bottom"><span>CLASSIFICATION : CONFIDENTIEL</span><span>ARCHIVES — SECTION SPÉCIALE</span><span>ÉDITION 01</span></div>
+    </section>
+    <section class="archive-page" id="fiche-hrp" aria-label="Première page du dossier HRP">
+      <div class="archive-page-frame">
+        <div class="archive-page-top"><span>DOSSIER AYATO</span><span>PIÈCE N° 01</span></div>
+        <img class="archive-page-title" src="asset/Fiche%20HRP%20aux%20fleurs%20de%20cerisier.png" alt="Fiche hors roleplay (HRP)">
+        <div class="archive-page-content">
+          <p class="archive-page-kicker">ARCHIVES CONFIDENTIELLES · SECTION I</p>
+          <h2>Fiche hors roleplay</h2>
+          <p>Cette pièce du dossier sera complétée avec les informations de candidature.</p>
+          <span class="archive-page-seal">ACCÈS AUTORISÉ</span>
+        </div>
+        <button class="return-cover" id="return-cover" type="button">← RETOUR À LA COUVERTURE</button>
+        <div class="archive-page-bottom"><span>OWARI NO SERAPH</span><span>FIN DE LA PIÈCE 01</span></div>
+      </div>
+    </section>
+  </main>
+
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="Dossier confidentiel — Candidature Ayato, archives d'Owari no Seraph.">
+  <title>Dossier Ayato — Archives confidentielles</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=ayato-clean-home-8">
 </head>
 <body>
@@ -32,11 +91,28 @@
     <section class="hero" id="accueil">
       <div class="hero-art" aria-hidden="true"><img src="asset/Cité gothique sous la lune de sang.png" alt=""></div><div class="hero-shade"></div>
       <div class="hero-content hero-content-image">
-        <img class="hero-title-image" src="asset/Titre gothique rouge _ Ayato, dossier confidentiel.png" alt="Owari no Seraph — Candidature Ayato, dossier personnel et archives confidentielles">
+        <img class="hero-title-image hero-title-clickable" id="hero-title-clickable" src="asset/Titre gothique rouge _ Ayato, dossier confidentiel.png" alt="Owari no Seraph — Candidature Ayato, cliquer pour ouvrir le dossier" role="button" tabindex="0" aria-label="Ouvrir la première page du dossier">
         <div class="logo-particles" aria-hidden="true"></div>
+        <button class="enter-dossier" id="enter-dossier" type="button" aria-controls="fiche-hrp">
+          <span>OUVRIR LE DOSSIER</span><span class="enter-dossier-arrow" aria-hidden="true">↓</span>
+        </button>
       </div>
       <div class="hero-side-note">ARCHIVE N° 001 / ACCÈS RESTREINT</div>
       <div class="hero-bottom"><span>CLASSIFICATION : CONFIDENTIEL</span><span>ARCHIVES — SECTION SPÉCIALE</span><span>ÉDITION 01</span></div>
+    </section>
+    <section class="archive-page" id="fiche-hrp" aria-label="Première page du dossier HRP">
+      <div class="archive-page-frame">
+        <div class="archive-page-top"><span>DOSSIER AYATO</span><span>PIÈCE N° 01</span></div>
+        <img class="archive-page-title" src="asset/Fiche%20HRP%20aux%20fleurs%20de%20cerisier.png" alt="Fiche hors roleplay (HRP)">
+        <div class="archive-page-content">
+          <p class="archive-page-kicker">ARCHIVES CONFIDENTIELLES · SECTION I</p>
+          <h2>Fiche hors roleplay</h2>
+          <p>Cette pièce du dossier sera complétée avec les informations de candidature.</p>
+          <span class="archive-page-seal">ACCÈS AUTORISÉ</span>
+        </div>
+        <button class="return-cover" id="return-cover" type="button">← RETOUR À LA COUVERTURE</button>
+        <div class="archive-page-bottom"><span>OWARI NO SERAPH</span><span>FIN DE LA PIÈCE 01</span></div>
+      </div>
     </section>
   </main>
 
@@ -83,6 +159,23 @@
         window.addEventListener("scroll", updateHint, {passive:true});
         updateHint();
       }
+    })();
+  </script>
+  <script>
+    (() => {
+      const logo = document.getElementById("hero-title-clickable");
+      const enter = document.getElementById("enter-dossier");
+      const page = document.getElementById("fiche-hrp");
+      const back = document.getElementById("return-cover");
+      const openPage = () => page.scrollIntoView({behavior:"smooth",block:"start"});
+      const openLogo = () => { openPage(); };
+      logo.addEventListener("click", openLogo);
+      logo.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") { event.preventDefault(); openLogo(); }
+      });
+      enter.addEventListener("click", openPage);
+      back.addEventListener("click", () => document.getElementById("accueil").scrollIntoView({behavior:"smooth",block:"start"}));
+      window.setTimeout(() => enter.classList.add("is-visible"), 2000);
     })();
   </script>
   <script>
