@@ -320,3 +320,12 @@ html{scroll-snap-type:none}
 }
 .archive-page-standalone{display:grid!important;min-height:100vh!important}
 .archive-document-body{min-height:100vh}
+
+
+/* Aligner le bouton sur le centre visuel du logo et ses filets rouges */
+.hero .hero-content-image .enter-dossier{left:48.5%!important;top:calc(50% + clamp(175px,24vh,225px))!important;transform:translate(-50%,12px)!important}
+.hero .hero-content-image .enter-dossier.is-visible{transform:translate(-50%,0)!important}
+@media(max-width:700px){
+ .hero .hero-content-image .enter-dossier{left:50%!important;top:calc(50% + 125px)!important}
+ .hero .hero-content-image .enter-dossier.is-visible{transform:translate(-50%,0)!important}
+}
