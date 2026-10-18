@@ -9,9 +9,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=ayato-seamless-mono-20">
+  <link rel="stylesheet" href="style.css?v=ayato-fade-transition-24">
 </head>
 <body>
+  <div class="page-transition" aria-hidden="true"></div>
   <div class="background-image" aria-hidden="true"></div>
   <div class="film-grain" aria-hidden="true"></div>
 
@@ -87,7 +88,8 @@
     (() => {
       const logo = document.getElementById("hero-title-clickable");
       const enter = document.getElementById("enter-dossier");
-      const openPage = () => { window.location.href = "page1.html"; };
+      const transition = document.querySelector(".page-transition");
+      const openPage = () => { transition.classList.add("is-active"); window.setTimeout(() => { window.location.href = "page1.html"; }, 650); };
       logo.addEventListener("click", openPage);
       logo.addEventListener("keydown", (event) => {
         if (event.key === "Enter" || event.key === " ") { event.preventDefault(); openPage(); }
