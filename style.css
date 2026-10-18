@@ -477,3 +477,11 @@ body.page-fade-in .page-transition{
  .hrp-fields>div{grid-template-columns:1fr;gap:5px}
  .hrp-record-heading{font-size:.58rem;letter-spacing:.08em}
 }
+
+
+/* Artwork HRP fourni : titre séparé puis document vertical */
+.hrp-artwork-content{width:100%;display:flex;flex-direction:column;align-items:center;gap:18px;padding:8px 0 24px}
+.hrp-title-art{display:block;width:min(92%,850px);height:auto;object-fit:contain;margin:0 auto}
+.hrp-paper-art{display:block;width:min(100%,680px);height:auto;object-fit:contain;margin:0 auto;filter:drop-shadow(0 16px 28px rgba(0,0,0,.5))}
+.archive-page-standalone .archive-page-frame{max-width:1100px}
+@media(max-width:700px){.hrp-artwork-content{gap:12px}.hrp-title-art{width:100%}.hrp-paper-art{width:100%}}
