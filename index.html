@@ -80,12 +80,12 @@ main, .piece, .piece p, .piece h2, .piece h3, .piece-kicker, .piece .facts, .pie
 }
 
 
-/* Portrait de Tozen : illustration latérale intégrée au dossier */
-#demon{position:relative}
-#demon .tozen-portrait{position:absolute;left:-clamp(190px,23vw,310px);right:auto;top:205px;width:clamp(280px,30vw,390px);max-height:680px;object-fit:contain;opacity:.82;pointer-events:none;z-index:0;filter:drop-shadow(0 8px 24px rgba(0,0,0,.7));mix-blend-mode:screen;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 8%,#000 82%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 8%,#000 82%,transparent 100%)}
-#demon>*:not(.tozen-portrait){position:relative;z-index:1}
-@media(max-width:1050px){#demon .tozen-portrait{left:-clamp(150px,19vw,220px);width:clamp(230px,27vw,320px);opacity:.65}}
-@media(max-width:760px){#demon .tozen-portrait{position:relative;display:block;top:auto;left:auto;right:auto;width:min(82%,320px);max-height:420px;margin:0 auto 12px;opacity:.75}}
+/* Deux concepts de Tozen, placés de part et d'autre au bas de sa description */
+#demon .tozen-portraits{display:flex;align-items:flex-end;justify-content:space-between;gap:clamp(18px,5vw,70px);width:100%;margin:38px auto 4px;pointer-events:none}
+#demon .tozen-portraits img{display:block;width:clamp(240px,31vw,360px);height:clamp(300px,40vw,440px);object-fit:contain;opacity:.88;filter:drop-shadow(0 8px 22px rgba(0,0,0,.7));mix-blend-mode:screen;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 7%,#000 84%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 7%,#000 84%,transparent 100%)}
+#demon .tozen-portraits img:first-child{margin-right:auto}
+#demon .tozen-portraits img:last-child{margin-left:auto}
+@media(max-width:760px){#demon .tozen-portraits{gap:4px;margin-top:24px}#demon .tozen-portraits img{width:49%;height:260px;opacity:.78}}
 
 </style>
 </head>
@@ -95,7 +95,7 @@ main, .piece, .piece p, .piece h2, .piece h3, .piece-kicker, .piece .facts, .pie
 <div class="audio"><div class="track"><small>BANDE SONORE</small>Misty Mountain Cold</div><audio id="music" preload="metadata" loop src="asset/Misty%20Mountain%20Cold%20Lyrics.mp3"></audio><button id="audio-toggle" type="button" aria-label="Activer ou couper la musique" title="Activer ou couper la musique">▶</button></div>
 <header class="hero" id="accueil">
 <div class="paperfall" aria-hidden="true"></div>
-<div class="hero-art" aria-hidden="true"><img src="asset/Dossier%20militaire%20gothique%20sous%20lune%20rouge.png" alt="Couverture illustrée du dossier militaire Ayato, archives confidentielles d’Owari no Seraph"></div>
+<div class="hero-art" aria-hidden="true"><img src="asset/Dossier%20militaire%20sous%20lune%20%C3%A9carlate.png" alt="Couverture illustrée du dossier militaire Ayato, archives confidentielles d’Owari no Seraph"></div>
 <div class="hero-content" aria-label="Couverture illustrée du dossier Ayato"></div>
 <a class="scroll-cue" href="#sommaire"><span>CONSULTER LE DOSSIER</span><span class="arrow">↓</span></a>
 <div class="hero-bottom"><span>SECTION SPÉCIALE</span><span>OWARI NO SERAPH</span><span>ÉDITION 01</span></div>
@@ -140,7 +140,6 @@ main, .piece, .piece p, .piece h2, .piece h3, .piece-kicker, .piece .facts, .pie
   <div class="piece-kicker">Pièce 02 · Entité fractionnée</div>
   <h2><span class="roman">Ⅱ.</span> Tozen — l'essence divisée</h2>
   <div class="quote">« Regarde-les trembler, gamin… Laisse-moi prendre les rênes et je ferai de tes bourreaux mes jouets. »</div>
-  <img class="tozen-portrait" src="asset/Gentilhomme%20du%20n%C3%A9ant%20au%20chapeau.png" alt="Silhouette monochrome de Tozen, entité démoniaque" loading="lazy">
   <div class="facts">
     <div class="fact"><strong>Nom</strong><span>Tozen</span></div>
     <div class="fact"><strong>Âge estimé</strong><span>2 853 ans</span></div>
@@ -156,6 +155,10 @@ main, .piece, .piece p, .piece h2, .piece h3, .piece-kicker, .piece .facts, .pie
   <h3>Une puissance divisée, une volonté intacte ?</h3>
   <p>Le Projet Janus a réparti l'essence de Tozen entre deux hôtes. Taketsu en porte 75 %, tandis que Ren en porte 25 %. Cette répartition ne signifie pas que les deux garçons maîtrisent cette puissance, ni qu'ils peuvent en utiliser librement les capacités. La quantité d'essence présente dans un corps ne garantit ni le contrôle, ni la résistance mentale, ni la capacité à survivre à son influence.</p>
   <p>La division de son essence a peut-être limité certaines de ses possibilités, mais elle a aussi créé une situation nouvelle : sa présence se manifeste désormais à travers deux êtres humains distincts. A-t-on réellement divisé Tozen, ou a-t-on seulement séparé une partie de sa puissance de ce qui faisait de lui une entité entière ? La réponse pourra se dévoiler progressivement en jeu.</p>
+  <div class="tozen-portraits" aria-label="Deux représentations possibles de Tozen">
+    <img src="asset/Fant%C3%B4me%20steampunk%20au%20sourire%20sinistre.png" alt="Tozen sous une forme de fantôme steampunk au sourire sinistre" loading="lazy">
+    <img src="asset/Gentilhomme%20vampirique%20au%20chapeau%20bordeaux.png" alt="Tozen sous une forme de gentleman vampirique au chapeau bordeaux" loading="lazy">
+  </div>
 </section>
 <section class="piece" id="lore">
   <div class="piece-kicker">Pièce 03 · Chronologie événementielle</div>
