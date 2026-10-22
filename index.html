@@ -38,6 +38,22 @@ main{width:min(980px,92vw);margin:0 auto;padding:56px 0 80px}.index-box,.piece{b
 .piece .closing{text-align:left}
 @media(max-width:600px){.piece .facts{grid-template-columns:1fr}.piece .list{padding-left:22px}}
 
+
+/* Direction artistique Janus : composition entièrement centrée */
+main, .piece, .piece p, .piece h2, .piece h3, .piece-kicker, .piece .facts, .piece .fact, .piece .list, .piece li, .piece .quote, footer { text-align:center; }
+.piece h2:after { margin-left:auto; margin-right:auto; }
+.piece .list { list-style-position:inside; padding-left:0; }
+.piece .sublist { list-style-position:inside; padding-left:0; }
+.piece .facts { justify-items:center; }
+.piece .fact { width:100%; }
+.piece .fact strong, .piece .fact span { text-align:center; }
+.hero { isolation:isolate; }
+.paperfall { position:absolute; inset:0; z-index:3; overflow:hidden; pointer-events:none; }
+.paperfall .scrap { position:absolute; top:-18%; display:block; width:clamp(13px,2.2vw,28px); height:clamp(18px,3vw,38px); opacity:0; background:linear-gradient(145deg,#d9c8a6 0%,#b6a184 45%,#e5d6bc 100%); border:1px solid rgba(67,43,29,.65); box-shadow:0 2px 8px #0008; clip-path:polygon(0 0,100% 4%,93% 89%,75% 100%,8% 93%); animation:paper-drift var(--duration,12s) linear var(--delay,0s) infinite; }
+.paperfall .scrap:after { content:""; position:absolute; left:15%; right:15%; top:30%; height:1px; background:rgba(77,45,28,.45); box-shadow:0 5px rgba(77,45,28,.25),0 10px rgba(77,45,28,.2); }
+@keyframes paper-drift { 0%{transform:translate3d(0,-5vh,0) rotate(0deg);opacity:0} 8%{opacity:.7} 48%{opacity:.65} 90%{opacity:.35} 100%{transform:translate3d(var(--drift,80px),115vh,0) rotate(var(--spin,260deg));opacity:0} }
+@media(prefers-reduced-motion:reduce){.paperfall .scrap{animation:none;display:none}}
+
 </style>
 </head>
 <body id="top">
@@ -45,6 +61,7 @@ main{width:min(980px,92vw);margin:0 auto;padding:56px 0 80px}.index-box,.piece{b
 <nav class="top-nav" aria-label="Navigation du dossier"><a href="#hote">01 · Les frères</a><a href="#demon">02 · Tozen</a><a href="#lore">03 · Le Projet Janus</a><a href="#impact">04 · Impact RP</a><a href="#conclusion">05 · Conclusion</a></nav>
 <div class="audio"><div class="track"><small>BANDE SONORE</small>Misty Mountain Cold</div><audio id="music" preload="metadata" loop src="asset/Misty%20Mountain%20Cold%20Lyrics.mp3"></audio><button id="audio-toggle" type="button" aria-label="Activer ou couper la musique" title="Activer ou couper la musique">▶</button></div>
 <header class="hero" id="accueil">
+<div class="paperfall" aria-hidden="true"></div>
 <div class="hero-art" aria-hidden="true"><img src="asset/Dossier%20militaire%20gothique%20sous%20lune%20rouge.png" alt="Couverture illustrée du dossier militaire Ayato, archives confidentielles d’Owari no Seraph"></div>
 <div class="hero-content" aria-label="Couverture illustrée du dossier Ayato"></div>
 <a class="scroll-cue" href="#sommaire"><span>CONSULTER LE DOSSIER</span><span class="arrow">↓</span></a>
@@ -156,7 +173,23 @@ main{width:min(980px,92vw);margin:0 auto;padding:56px 0 80px}.index-box,.piece{b
 </section>
 <a class="back-top" href="#top">↑ RETOUR EN HAUT DES ARCHIVES</a><footer>FIN DU DOSSIER · ARCHIVES CONFIDENTIELLES · OWARI NO SERAPH</footer></main>
 <script>
-(()=>{const audio=document.getElementById('music'),btn=document.getElementById('audio-toggle');audio.volume=.02;let playing=false;const sync=()=>{playing=!audio.paused;btn.textContent=playing?'Ⅱ':'▶';btn.setAttribute('aria-label',playing?'Couper la musique':'Activer la musique')};btn.addEventListener('click',async()=>{if(audio.paused){try{await audio.play()}catch(e){}}else audio.pause();sync()});audio.addEventListener('play',sync);audio.addEventListener('pause',sync);audio.addEventListener('error',()=>{btn.textContent='×';btn.title='Fichier audio introuvable'});sync()})();
+(()=>{
+const paperLayer=document.querySelector('.paperfall');
+if(paperLayer && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  for(let i=0;i<17;i++){
+    const paper=document.createElement('span');
+    paper.className='scrap';
+    paper.style.left=(Math.random()*100)+'%';
+    paper.style.setProperty('--duration',(10+Math.random()*13)+'s');
+    paper.style.setProperty('--delay',(-Math.random()*22)+'s');
+    paper.style.setProperty('--drift',((Math.random()*180)-90)+'px');
+    paper.style.setProperty('--spin',((Math.random()*520)-260)+'deg');
+    paper.style.width=(12+Math.random()*18)+'px';
+    paper.style.height=(17+Math.random()*25)+'px';
+    paperLayer.appendChild(paper);
+  }
+}
+const audio=document.getElementById('music'),btn=document.getElementById('audio-toggle');audio.volume=.02;let playing=false;const sync=()=>{playing=!audio.paused;btn.textContent=playing?'Ⅱ':'▶';btn.setAttribute('aria-label',playing?'Couper la musique':'Activer la musique')};btn.addEventListener('click',async()=>{if(audio.paused){try{await audio.play()}catch(e){}}else audio.pause();sync()});audio.addEventListener('play',sync);audio.addEventListener('pause',sync);audio.addEventListener('error',()=>{btn.textContent='×';btn.title='Fichier audio introuvable'});sync()})();
 </script>
 </body>
 </html>
