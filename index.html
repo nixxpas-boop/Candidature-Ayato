@@ -79,6 +79,14 @@ main, .piece, .piece p, .piece h2, .piece h3, .piece-kicker, .piece .facts, .pie
  #hote .character-profile .character-copy{width:100%;z-index:1}
 }
 
+
+/* Portrait de Tozen : illustration latérale intégrée au dossier */
+#demon{position:relative}
+#demon .tozen-portrait{position:absolute;right:-42px;top:245px;width:clamp(190px,22vw,270px);max-height:540px;object-fit:contain;opacity:.76;pointer-events:none;z-index:0;filter:drop-shadow(0 8px 24px rgba(0,0,0,.65));mix-blend-mode:screen;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 9%,#000 82%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 9%,#000 82%,transparent 100%)}
+#demon>*:not(.tozen-portrait){position:relative;z-index:1}
+@media(max-width:1050px){#demon .tozen-portrait{right:-12px;width:clamp(160px,20vw,220px);opacity:.48}}
+@media(max-width:760px){#demon .tozen-portrait{position:relative;display:block;top:auto;right:auto;width:min(70%,250px);max-height:360px;margin:0 auto 12px;opacity:.7}}
+
 </style>
 </head>
 <body id="top">
@@ -132,6 +140,7 @@ main, .piece, .piece p, .piece h2, .piece h3, .piece-kicker, .piece .facts, .pie
   <div class="piece-kicker">Pièce 02 · Entité fractionnée</div>
   <h2><span class="roman">Ⅱ.</span> Tozen — l'essence divisée</h2>
   <div class="quote">« Regarde-les trembler, gamin… Laisse-moi prendre les rênes et je ferai de tes bourreaux mes jouets. »</div>
+  <img class="tozen-portrait" src="asset/Gentilhomme%20du%20n%C3%A9ant%20au%20chapeau.png" alt="Silhouette monochrome de Tozen, entité démoniaque" loading="lazy">
   <div class="facts">
     <div class="fact"><strong>Nom</strong><span>Tozen</span></div>
     <div class="fact"><strong>Âge estimé</strong><span>2 853 ans</span></div>
