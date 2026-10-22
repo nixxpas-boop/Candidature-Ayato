@@ -54,6 +54,26 @@ main, .piece, .piece p, .piece h2, .piece h3, .piece-kicker, .piece .facts, .pie
 @keyframes paper-drift { 0%{transform:translate3d(0,-5vh,0) rotate(0deg);opacity:0} 8%{opacity:.7} 48%{opacity:.65} 90%{opacity:.35} 100%{transform:translate3d(var(--drift,80px),115vh,0) rotate(var(--spin,260deg));opacity:0} }
 @media(prefers-reduced-motion:reduce){.paperfall .scrap{animation:none;display:none}}
 
+
+/* Portraits intégrés aux résumés des deux réceptacles */
+#hote .character-profile{display:grid;grid-template-columns:minmax(170px,230px) minmax(0,1fr);align-items:center;gap:clamp(10px,2vw,24px);position:relative;max-width:1080px;margin:30px auto 44px;padding:0;isolation:isolate}
+#hote .character-profile.portrait-right{grid-template-columns:minmax(0,1fr) minmax(170px,230px)}
+#hote .character-profile .character-portrait{display:block;width:100%;max-height:500px;object-fit:contain;align-self:center;opacity:.92;filter:drop-shadow(0 10px 20px rgba(0,0,0,.5));-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 9%,#000 86%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 9%,#000 86%,transparent 100%);position:relative;z-index:-1}
+#hote .character-profile.portrait-left .character-portrait{grid-column:1;grid-row:1}
+#hote .character-profile.portrait-left .character-copy{grid-column:2;grid-row:1}
+#hote .character-profile.portrait-right .character-copy{grid-column:1;grid-row:1}
+#hote .character-profile.portrait-right .character-portrait{grid-column:2;grid-row:1}
+#hote .character-profile .character-copy{min-width:0;position:relative;z-index:1}
+#hote .character-profile h3{margin-top:0}
+#hote .character-profile .facts{margin-bottom:20px}
+#hote .character-profile .quote{max-width:100%}
+@media(max-width:760px){
+ #hote .character-profile,#hote .character-profile.portrait-right{grid-template-columns:minmax(0,1fr);gap:4px;margin:26px auto 38px}
+ #hote .character-profile .character-portrait,#hote .character-profile.portrait-right .character-portrait{grid-column:1;grid-row:1;width:min(68%,260px);height:220px;justify-self:center;object-position:center 25%;opacity:.78;margin-bottom:-38px;z-index:0}
+ #hote .character-profile .character-copy,#hote .character-profile.portrait-right .character-copy{grid-column:1;grid-row:2;z-index:1}
+ #hote .character-profile h3{margin-top:0}
+}
+
 </style>
 </head>
 <body id="top">
@@ -72,7 +92,9 @@ main, .piece, .piece p, .piece h2, .piece h3, .piece-kicker, .piece .facts, .pie
   <div class="piece-kicker">Pièce 01 · Les réceptacles</div>
   <h2><span class="roman">Ⅰ.</span> Les deux frères — Taketsu & Ren Otaya</h2>
   <div class="quote">« Nous voulions seulement rester ensemble. Le monde, lui, avait d'autres projets. »</div>
-  <h3>Taketsu Otaya — le réceptacle principal</h3>
+<div class="character-profile portrait-left taketsu-profile">
+<img class="character-portrait" src="asset/Portrait%20gothique%20aux%20yeux%20glac%C3%A9s.png" alt="Portrait de Taketsu Otaya, cheveux gris foncé, yeux bleus et cicatrices" loading="lazy">
+<div class="character-copy"><h3>Taketsu Otaya — le réceptacle principal</h3>
   <div class="facts">
     <div class="fact"><strong>Nom & prénom</strong><span>Taketsu Otaya</span></div>
     <div class="fact"><strong>Âge</strong><span>14 ans</span></div>
@@ -82,8 +104,11 @@ main, .piece, .piece p, .piece h2, .piece h3, .piece-kicker, .piece .facts, .pie
   <h3>Profil psychologique</h3>
   <p>Taketsu est un garçon intelligent, discret et profondément marqué par les événements qui ont bouleversé son enfance. Derrière son apparence fragile se cache un esprit qui a appris à observer avant d'agir, à se méfier avant de faire confiance et à dissimuler ses émotions pour éviter d'attirer l'attention.</p>
   <p>La peur fait désormais partie de son quotidien. Les bruits soudains, les uniformes militaires et les lieux clos peuvent réveiller des souvenirs qu'il préférerait oublier. Pourtant, malgré les épreuves, il n'a pas entièrement perdu sa capacité à éprouver de la compassion.</p>
-  <p>Avant tout, Taketsu voudrait retrouver une vie ordinaire. Un endroit où dormir sans craindre d'être emmené de force, où fermer les yeux sans revivre les expériences subies, où il pourrait enfin cesser de fuir. Mais quelque chose vit désormais en lui : une présence qui ne connaît ni la compassion, ni la peur, ni les limites que son corps d'enfant lui impose.</p>
-  <h3>Ren Otaya — le second réceptacle</h3>
+  <p>Avant tout, Taketsu voudrait retrouver une vie ordinaire. Un endroit où dormir sans craindre d'être emmené de force, où fermer les yeux sans revivre les expériences subies, où il pourrait enfin cesser de fuir. Mais quelque chose vit désormais en lui : une présence qui ne connaît ni la compassion, ni la peur, ni les limites que son corps d'enfant lui impose.</p></div>
+</div>
+<div class="character-profile portrait-right ren-profile">
+<img class="character-portrait" src="asset/Portrait%20anime%20dark%20fantasy%20aux%20rubans%20cramoisis.png" alt="Portrait de Ren Otaya, cheveux châtain et visage sans cicatrice" loading="lazy">
+<div class="character-copy"><h3>Ren Otaya — le second réceptacle</h3>
   <div class="facts">
     <div class="fact"><strong>Nom & prénom</strong><span>Ren Otaya <em>(nom provisoire)</em></span></div>
     <div class="fact"><strong>Lien</strong><span>Petit frère de Taketsu</span></div>
@@ -95,7 +120,8 @@ main, .piece, .piece p, .piece h2, .piece h3, .piece-kicker, .piece .facts, .pie
   <p>Ren n'est pas dépourvu de volonté. Il a simplement appris à cacher la sienne derrière le silence. Il doute de lui-même, redoute de mal agir et craint de devenir un poids pour son frère. Il ne rêve ni de gloire ni de puissance. Ce qu'il désire est plus simple : rester auprès de Taketsu.</p>
   <div class="quote">« Ren n'est pas courageux parce qu'il ignore la peur. Il tente de l'être parce qu'il a peur de perdre son frère. »</div>
   <p>Ren peut reculer devant un danger, trembler ou perdre ses moyens. Mais si Taketsu se retrouve en péril, quelque chose en lui peut changer. Même terrifié, il pourrait trouver la force de rester à ses côtés alors que tout lui commande de fuir. Il ne cherche pas à surpasser son frère : il est son point d'ancrage, et peut-être l'une des dernières raisons qui l'empêchent de sombrer.</p>
-  <p>Les deux frères ont été soumis à la même expérience. Ren porte une fraction de l'essence de Tozen, moins importante en quantité, mais dont les conséquences restent inconnues. Cette part ne fait pas de lui un être supérieur : elle représente un fardeau qu'il ne comprend pas et qu'il n'a jamais choisi.</p>
+  <p>Les deux frères ont été soumis à la même expérience. Ren porte une fraction de l'essence de Tozen, moins importante en quantité, mais dont les conséquences restent inconnues. Cette part ne fait pas de lui un être supérieur : elle représente un fardeau qu'il ne comprend pas et qu'il n'a jamais choisi.</p></div>
+</div>
 </section>
 <section class="piece" id="demon">
   <div class="piece-kicker">Pièce 02 · Entité fractionnée</div>
