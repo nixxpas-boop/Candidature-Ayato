@@ -80,12 +80,15 @@ main, .piece, .piece p, .piece h2, .piece h3, .piece-kicker, .piece .facts, .pie
 }
 
 
-/* Deux concepts de Tozen, placés de part et d'autre au bas de sa description */
-#demon .tozen-portraits{display:flex;align-items:flex-end;justify-content:space-between;gap:clamp(18px,5vw,70px);width:100%;margin:38px auto 4px;pointer-events:none}
-#demon .tozen-portraits img{display:block;width:clamp(240px,31vw,360px);height:clamp(300px,40vw,440px);object-fit:contain;opacity:.88;filter:drop-shadow(0 8px 22px rgba(0,0,0,.7));mix-blend-mode:screen;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 7%,#000 84%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 7%,#000 84%,transparent 100%)}
-#demon .tozen-portraits img:first-child{margin-right:auto}
-#demon .tozen-portraits img:last-child{margin-left:auto}
-@media(max-width:760px){#demon .tozen-portraits{gap:4px;margin-top:24px}#demon .tozen-portraits img{width:49%;height:260px;opacity:.78}}
+/* Portraits de Tozen encadrant sa description, à l'extérieur de la colonne centrale */
+#demon{position:relative;isolation:isolate}
+#demon .tozen-portraits{display:contents;pointer-events:none}
+#demon .tozen-portraits img{position:absolute;display:block;width:clamp(300px,24vw,390px);height:clamp(460px,48vw,620px);object-fit:contain;opacity:.88;filter:drop-shadow(0 8px 22px rgba(0,0,0,.72));mix-blend-mode:screen;z-index:0;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 7%,#000 84%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 7%,#000 84%,transparent 100%)}
+#demon .tozen-portraits img:first-child{left:clamp(-340px,-19vw,-220px);top:125px}
+#demon .tozen-portraits img:last-child{right:clamp(-340px,-19vw,-220px);top:285px}
+#demon>*:not(.tozen-portraits){position:relative;z-index:1}
+@media(max-width:1250px){#demon .tozen-portraits img{width:clamp(230px,24vw,300px);height:480px;opacity:.62}#demon .tozen-portraits img:first-child{left:-190px;top:150px}#demon .tozen-portraits img:last-child{right:-190px;top:300px}}
+@media(max-width:850px){#demon .tozen-portraits{display:flex;position:relative;justify-content:center;align-items:flex-end;gap:8px;margin-top:26px}#demon .tozen-portraits img{position:relative;left:auto!important;right:auto!important;top:auto!important;width:49%;height:300px;opacity:.78}}
 
 </style>
 </head>
