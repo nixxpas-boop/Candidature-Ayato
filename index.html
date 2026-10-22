@@ -55,21 +55,24 @@ main, .piece, .piece p, .piece h2, .piece h3, .piece-kicker, .piece .facts, .pie
 @media(prefers-reduced-motion:reduce){.paperfall .scrap{animation:none;display:none}}
 
 
-/* Portraits intégrés aux résumés des deux réceptacles */
-#hote .character-profile{display:grid;grid-template-columns:minmax(170px,230px) minmax(0,1fr);align-items:center;gap:clamp(10px,2vw,24px);position:relative;max-width:1080px;margin:30px auto 44px;padding:0;isolation:isolate}
-#hote .character-profile.portrait-right{grid-template-columns:minmax(0,1fr) minmax(170px,230px)}
-#hote .character-profile .character-portrait{display:block;width:100%;max-height:500px;object-fit:contain;align-self:center;opacity:.92;filter:drop-shadow(0 10px 20px rgba(0,0,0,.5));-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 9%,#000 86%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 9%,#000 86%,transparent 100%);position:relative;z-index:0}
+/* Portraits intégrés aux résumés : composition centrée et visuels plus présents */
+#hote .character-profile{display:grid;grid-template-columns:minmax(220px,285px) minmax(0,1fr);align-items:center;gap:clamp(8px,1.4vw,18px);position:relative;max-width:1120px;margin:30px auto 44px;padding:0;isolation:isolate}
+#hote .character-profile.portrait-right{grid-template-columns:minmax(0,1fr) minmax(220px,285px)}
+#hote .character-profile .character-portrait{display:block;width:100%;max-height:560px;object-fit:contain;align-self:center;opacity:.9;filter:drop-shadow(0 10px 20px rgba(0,0,0,.5));-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 9%,#000 86%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 9%,#000 86%,transparent 100%);position:relative;z-index:0}
 #hote .character-profile.portrait-left .character-portrait{grid-column:1;grid-row:1}
 #hote .character-profile.portrait-left .character-copy{grid-column:2;grid-row:1}
 #hote .character-profile.portrait-right .character-copy{grid-column:1;grid-row:1}
 #hote .character-profile.portrait-right .character-portrait{grid-column:2;grid-row:1}
 #hote .character-profile .character-copy{min-width:0;position:relative;z-index:1}
-#hote .character-profile h3{margin-top:0}
-#hote .character-profile .facts{margin-bottom:20px}
-#hote .character-profile .quote{max-width:100%}
+#hote .character-profile h3{margin-top:0;text-align:center}
+#hote .character-profile .character-copy,#hote .character-profile .character-copy p,#hote .character-profile .character-copy h3,#hote .character-profile .character-copy .facts,#hote .character-profile .character-copy .fact,#hote .character-profile .character-copy .quote{text-align:center}
+#hote .character-profile .character-copy .facts{margin:0 auto 20px;justify-items:center}
+#hote .character-profile .character-copy .fact{width:100%}
+#hote .character-profile .character-copy .fact strong,#hote .character-profile .character-copy .fact span{text-align:center}
+#hote .character-profile .character-copy .quote{max-width:100%;margin-left:auto;margin-right:auto}
 @media(max-width:760px){
  #hote .character-profile,#hote .character-profile.portrait-right{grid-template-columns:minmax(0,1fr);gap:4px;margin:26px auto 38px}
- #hote .character-profile .character-portrait,#hote .character-profile.portrait-right .character-portrait{grid-column:1;grid-row:1;width:min(68%,260px);height:220px;justify-self:center;object-position:center 25%;opacity:.78;margin-bottom:-38px;z-index:0}
+ #hote .character-profile .character-portrait,#hote .character-profile.portrait-right .character-portrait{grid-column:1;grid-row:1;width:min(76%,300px);max-height:340px;justify-self:center;object-position:center 25%;opacity:.78;margin-bottom:-38px;z-index:0}
  #hote .character-profile .character-copy,#hote .character-profile.portrait-right .character-copy{grid-column:1;grid-row:2;z-index:1}
  #hote .character-profile h3{margin-top:0}
 }
