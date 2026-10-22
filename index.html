@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#090909">
-<meta name="description" content="Dossier confidentiel — Candidature Ayato, archives d'Owari no Seraph.">
-<title>Dossier Ayato — Archives confidentielles</title>
+<meta name="description" content="Dossier confidentiel — Projet Janus, Taketsu Otaya, Ren Otaya et Tozen, archives d’Owari no Seraph.">
+<title>Dossier Janus — Archives confidentielles</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -25,17 +25,24 @@ main{width:min(980px,92vw);margin:0 auto;padding:56px 0 80px}.index-box,.piece{b
 .piece h2:after{content:"";display:block;width:88px;height:2px;margin-top:14px;background:linear-gradient(90deg,var(--red2),rgba(209,75,64,.12))}
 @media(max-width:600px){.piece{padding:32px 0}.piece + .piece{margin-top:12px;padding-top:38px}}
 
-/* Centrage de la fiche HRP */
-#hrp{text-align:center}
-#hrp h2:after{margin-left:auto;margin-right:auto}
-#hrp .facts{text-align:center}
-#hrp .fact{padding:12px 8px}
+/* Composition éditoriale : titres centrés, texte narratif aligné à gauche pour le confort de lecture */
+.piece h2{text-align:center}
+.piece h2:after{margin-left:auto;margin-right:auto}
+.piece-kicker{text-align:center}
+.piece .quote{max-width:780px;margin:22px auto;text-align:center;border-left:0;border-top:1px solid rgba(174,55,48,.55);border-bottom:1px solid rgba(174,55,48,.3);padding:14px 18px;background:rgba(0,0,0,.18)}
+.piece .facts{max-width:800px;margin:0 auto 24px}
+.piece h3{margin-top:30px}
+.piece p,.piece .list{max-width:820px;margin-left:auto;margin-right:auto}
+.piece .list{padding-left:26px}
+.piece .fact{text-align:center}
+.piece .closing{text-align:left}
+@media(max-width:600px){.piece .facts{grid-template-columns:1fr}.piece .list{padding-left:22px}}
 
 </style>
 </head>
 <body id="top">
 <div class="background-image" aria-hidden="true"></div><div class="film-grain" aria-hidden="true"></div>
-<nav class="top-nav" aria-label="Navigation du dossier"><a href="#hrp">01 · Fiche HRP</a><a href="#hote">02 · L’hôte</a><a href="#demon">03 · Le démon</a><a href="#lore">04 · L’expérience</a><a href="#impact">05 · Impact RP</a><a href="#conclusion">06 · Conclusion</a></nav>
+<nav class="top-nav" aria-label="Navigation du dossier"><a href="#hote">01 · Les frères</a><a href="#demon">02 · Tozen</a><a href="#lore">03 · Le Projet Janus</a><a href="#impact">04 · Impact RP</a><a href="#conclusion">05 · Conclusion</a></nav>
 <div class="audio"><div class="track"><small>BANDE SONORE</small>Misty Mountain Cold</div><audio id="music" preload="metadata" loop src="asset/Misty%20Mountain%20Cold%20Lyrics.mp3"></audio><button id="audio-toggle" type="button" aria-label="Activer ou couper la musique" title="Activer ou couper la musique">▶</button></div>
 <header class="hero" id="accueil">
 <div class="hero-art" aria-hidden="true"><img src="asset/Dossier%20militaire%20gothique%20sous%20lune%20rouge.png" alt="Couverture illustrée du dossier militaire Ayato, archives confidentielles d’Owari no Seraph"></div>
@@ -43,16 +50,111 @@ main{width:min(980px,92vw);margin:0 auto;padding:56px 0 80px}.index-box,.piece{b
 <a class="scroll-cue" href="#sommaire"><span>CONSULTER LE DOSSIER</span><span class="arrow">↓</span></a>
 <div class="hero-bottom"><span>SECTION SPÉCIALE</span><span>OWARI NO SERAPH</span><span>ÉDITION 01</span></div>
 </header>
-<main>
-<section class="piece" id="hrp"><div class="piece-kicker">Pièce 01 · Identification</div><h2><span class="roman">Ⅰ.</span> Fiche hors roleplay (HRP)</h2><div class="facts"><div class="fact"><strong>Identifiant / Pseudo</strong><span>Lewan</span></div><div class="fact"><strong>Discord</strong><span>lewan#3946</span></div><div class="fact"><strong>Âge</strong><span>20 ans</span></div><div class="fact"><strong>Expérience Garry's Mod</strong><span>+ 6 480 heures de jeu en RP</span></div></div></section>
-<section class="piece" id="hote"><div class="piece-kicker">Pièce 02 · Sujet humain</div><h2><span class="roman">Ⅱ.</span> Dossier personnage I : l'hôte (Taketsu Otaya)</h2><div class="quote">« Je voulais juste un endroit paisible... Mais ce monde ne laisse aucune place aux faibles. »</div><div class="facts"><div class="fact"><strong>Nom & prénom</strong><span>Taketsu Otaya (connu sous l'alias <em>Ayato</em>)</span></div><div class="fact"><strong>Âge</strong><span>14 ans</span></div><div class="fact"><strong>Sexe</strong><span>Masculin</span></div><div class="fact"><strong>Statut actuel</strong><span>Cobaye en fuite / Traqué</span></div></div><h3>Profil visuel & description physique</h3><ul class="list"><li><strong>Stature & carrure :</strong> petit pour son âge (environ 1,55 m), silhouette frêle et réservée, portant les traces d'une malnutrition passée.</li><li><strong>Visage & regard :</strong> des yeux bleu glacial, perçants mais remplis de méfiance, scrutant sans cesse son environnement. Ses cheveux noirs sont coupés court pour un entretien rapide en situation de survie.</li><li><strong>Marque distinctive :</strong> une profonde cicatrice chirurgicale et de combat traverse son visage, partant de sa tempe droite jusqu'au bas de sa joue.</li></ul><h3>Psychologie & alignement</h3><ul class="list"><li><strong>Mental d'acier :</strong> malgré un corps martyrisé, Taketsu possède une résilience psychologique hors du commun, forgée par les épreuves.</li><li><strong>Comportement :</strong> extrêmement timide, silencieux, craintif et toujours sur la défensive. Il sursaute aux bruits soudains, mais analyse tout ce qui l'entoure avec une intelligence vive.</li><li><strong>Objectif RP :</strong> trouver une faction ou des alliés capables de le protéger, tout en luttant chaque seconde contre la corruption mentale du démon scellé en lui.</li></ul></section>
-<section class="piece" id="demon"><div class="piece-kicker">Pièce 03 · Entité scellée</div><h2><span class="roman">Ⅲ.</span> Dossier personnage II : le démon (Tozen)</h2><div class="quote">« Regarde-les trembler, gamin... Laisse-moi prendre les rênes et je ferai de tes bourreaux mes jouets. »</div><div class="facts"><div class="fact"><strong>Nom</strong><span>Tozen</span></div><div class="fact"><strong>Âge</strong><span>2 853 ans</span></div><div class="fact"><strong>Origine / rang</strong><span>Ancien Noble Vampire / Démon de Rang Supérieur</span></div><div class="fact"><strong>Affinité arme</strong><span>Arme Démoniaque de Rang Majeur</span></div></div><h3>Profil visuel & description démoniaque</h3><ul class="list"><li><strong>Stature :</strong> titanesque (environ 2,30 m), corps massif et colossal inspirant la terreur pure.</li><li><strong>Physionomie :</strong> longs cheveux gris argentés flottant comme une ombre, yeux d'un blanc aveuglant dépourvus de pupilles.</li><li><strong>Insignes de cruauté :</strong> son corps est recouvert de centaines de cicatrices rituelles — chacune symbolise une victime dont il a volé la force ou la vie par pure jalousie.</li></ul><h3>Psychologie & nature infernale</h3><ul class="list"><li><strong>Jalousie obsessive & dominance :</strong> Tozen ne tolère pas que d'autres créatures possèdent ce qu'il n'a pas. Il désire tout s'approprier : puissance, respect et contrôle.</li><li><strong>Esprit sadique & joueur :</strong> il traite la réalité comme un échiquier où les humains et les vampires ne sont que des pions.</li><li><strong>Relation avec l'hôte :</strong> il trouve le contraste entre sa puissance titanesque et la fragilité de Taketsu hilarant. Il préfère le torturer mentalement par des illusions plutôt que de le tuer immédiatement.</li></ul></section>
-<section class="piece" id="lore"><div class="piece-kicker">Pièce 04 · Chronologie événementielle</div><h2><span class="roman">Ⅳ.</span> Lore complet : l'expérience interdite</h2><h3>Chapitre 1 : L'ombre de la peste & le faux océan de paix</h3><p>L'apocalypse s'est abattue sans préavis. Dans le chaos primitif qui a suivi la chute de la civilisation, le jeune Taketsu assiste à la mort de ses parents et est brutalement séparé de sa sœur unique. Seul dans un monde dévasté, le garçon survit pendant des mois en glanant des vivres. Attiré par une structure fortifiée qu'il prenait pour un abri de réfugiés, il franchit les portes d'un ancien complexe militaire.</p><p>Ce n'était pas un refuge. C'était un site d'expérimentation secret contrôlé par les scientifiques de l'<strong>Armée Démoniaque</strong>.</p><h3>Chapitre 2 : L'infiltration infernale (âge : 11 ans)</h3><p>Pendant plus de deux années, Taketsu devient le cobaye central du <strong>Projet « Janus »</strong> : une expérience hautement classifiée visant à implanter un Démon Supérieur directement dans un hôte humain compatible pour créer une arme vivante capable d'exterminer la noblesse vampire.</p><p>Sous les tortures répétées et les injections de substances maudites, l'âme de Taketsu est brisée puis reconstruite. Lors du rituel de scellage du démon <strong>Tozen</strong>, une bataille psychique d'une violence inouïe éclate dans l'esprit du garçon. Admiratif du mental d'acier de l'enfant et désireux de s'amuser, Tozen passe un pacte tordu : il fusionne avec son essence, instaurant une <strong>double personnalité instable</strong>.</p><h3>Chapitre 3 : L'attaque du convoi & la traque bipolaire</h3><p>Lors d'une crise de possession, la puissance relâchée par Tozen détruit la moitié du complexe scientifique. Réingéniéré et enchaîné, Taketsu est placé dans un train blindé à destination d'un centre de haute sécurité. Mais le convoi est intercepté et massacré par une escouade d'élite de <strong>Vampires</strong>.</p><p>Profitant du sang coulant sur le champ de bataille et de la panique générale, Taketsu réussit à briser ses entraves et s'enfonce dans la forêt. Au même moment, un haut gradé vampire découvre dans les ruines du wagon de commandement le dossier médical secret de Taketsu.</p><h3>Situation actuelle</h3><p>Taketsu a désormais 14 ans. Blessé, seul et traqué, il erre dans les zones neutres. L'Armée Démoniaque veut récupérer son arme vivante coûte que coûte. Les Vampires veulent capturer le cobaye pour étudier et anéantir le secret des armes démoniaques. <strong>Et au centre de cette tempête, Tozen attend le bon moment pour prendre le contrôle total.</strong></p></section>
-<section class="piece" id="impact"><div class="piece-kicker">Pièce 05 · Potentiel narratif</div><h2><span class="roman">Ⅴ.</span> Plus-value RP & motivations pour le serveur</h2><ul class="list"><li><strong>Inauguration de la lore des Démons :</strong> introduire la toute première manifestation de Démon Supérieur et d'Arme Démoniaque sur le serveur avec un sérieux irréprochable.</li><li><strong>Moteur événementiel pour les factions :</strong><ul class="sublist"><li><strong>Pour l'Armée Démoniaque :</strong> scènes de recherche scientifique, traques tactiques, interrogatoires et tentatives de reconquête ou de soumission de l'arme.</li><li><strong>Pour les Vampires :</strong> quêtes d'infiltration, capture de cobaye, interceptions de dossiers secrets et affrontements contre la menace démoniaque.</li></ul></li><li><strong>Jeu d'acteur & dualité RP :</strong> offrir un RP d'une grande richesse émotionnelle en alternant entre l'enfant apeuré cherchant de l'aide et le démon colossal terrifiant ses interlocuteurs.</li></ul></section>
-<section class="piece closing" id="conclusion"><div class="piece-kicker">Pièce 06 · Fin du dossier</div><h2><span class="roman">Ⅵ.</span> Remerciements & engagement staff</h2><p>Un grand merci à l'équipe d'administration et de modération pour la lecture de ce dossier. Je suis prêt à réaliser un entretien vocal, à adapter le lore selon les règles précises du serveur ou à ajuster la puissance du personnage pour garantir un équilibre parfait en jeu.</p><p style="margin-top:28px"><strong>Respectueusement,</strong><br><em>Lewan</em></p></section>
-<a class="back-top" href="#top">↑ RETOUR EN HAUT DES ARCHIVES</a>
-<footer>FIN DU DOSSIER · ARCHIVES CONFIDENTIELLES · OWARI NO SERAPH</footer>
-</main>
+<main><div class="index-box" id="sommaire"><h2 class="section-heading"><span class="roman">✦</span> Sommaire du dossier</h2><div class="toc"><a href="#hote"><b>01</b><span>Les deux frères</span></a><a href="#demon"><b>02</b><span>Tozen</span></a><a href="#lore"><b>03</b><span>Le Projet Janus</span></a><a href="#impact"><b>04</b><span>Impact RP</span></a><a href="#conclusion"><b>05</b><span>Conclusion</span></a></div></div>
+<section class="piece" id="hote">
+  <div class="piece-kicker">Pièce 01 · Les réceptacles</div>
+  <h2><span class="roman">Ⅰ.</span> Les deux frères — Taketsu & Ren Otaya</h2>
+  <div class="quote">« Nous voulions seulement rester ensemble. Le monde, lui, avait d'autres projets. »</div>
+  <h3>Taketsu Otaya — le réceptacle principal</h3>
+  <div class="facts">
+    <div class="fact"><strong>Nom & prénom</strong><span>Taketsu Otaya</span></div>
+    <div class="fact"><strong>Âge</strong><span>14 ans</span></div>
+    <div class="fact"><strong>Statut</strong><span>Cobaye en fuite</span></div>
+    <div class="fact"><strong>Essence de Tozen</strong><span>75 % — réceptacle principal</span></div>
+  </div>
+  <h3>Profil psychologique</h3>
+  <p>Taketsu est un garçon intelligent, discret et profondément marqué par les événements qui ont bouleversé son enfance. Derrière son apparence fragile se cache un esprit qui a appris à observer avant d'agir, à se méfier avant de faire confiance et à dissimuler ses émotions pour éviter d'attirer l'attention.</p>
+  <p>La peur fait désormais partie de son quotidien. Les bruits soudains, les uniformes militaires et les lieux clos peuvent réveiller des souvenirs qu'il préférerait oublier. Pourtant, malgré les épreuves, il n'a pas entièrement perdu sa capacité à éprouver de la compassion.</p>
+  <p>Avant tout, Taketsu voudrait retrouver une vie ordinaire. Un endroit où dormir sans craindre d'être emmené de force, où fermer les yeux sans revivre les expériences subies, où il pourrait enfin cesser de fuir. Mais quelque chose vit désormais en lui : une présence qui ne connaît ni la compassion, ni la peur, ni les limites que son corps d'enfant lui impose.</p>
+  <h3>Ren Otaya — le second réceptacle</h3>
+  <div class="facts">
+    <div class="fact"><strong>Nom & prénom</strong><span>Ren Otaya <em>(nom provisoire)</em></span></div>
+    <div class="fact"><strong>Lien</strong><span>Petit frère de Taketsu</span></div>
+    <div class="fact"><strong>Statut</strong><span>Second cobaye du Projet Janus</span></div>
+    <div class="fact"><strong>Essence de Tozen</strong><span>25 % — second réceptacle</span></div>
+  </div>
+  <h3>Profil psychologique</h3>
+  <p>Contrairement à son frère, Ren n'a rien d'impressionnant au premier regard. Timide, réservé et facilement effrayé, il préfère rester en retrait plutôt que de prendre la parole. Face à un inconnu, il cherchera souvent le regard de Taketsu avant d'oser répondre. Lorsqu'une situation devient menaçante, son premier réflexe sera de se rapprocher de lui, comme s'il pouvait encore trouver derrière son épaule la sécurité qu'il a perdue depuis longtemps.</p>
+  <p>Ren n'est pas dépourvu de volonté. Il a simplement appris à cacher la sienne derrière le silence. Il doute de lui-même, redoute de mal agir et craint de devenir un poids pour son frère. Il ne rêve ni de gloire ni de puissance. Ce qu'il désire est plus simple : rester auprès de Taketsu.</p>
+  <div class="quote">« Ren n'est pas courageux parce qu'il ignore la peur. Il tente de l'être parce qu'il a peur de perdre son frère. »</div>
+  <p>Ren peut reculer devant un danger, trembler ou perdre ses moyens. Mais si Taketsu se retrouve en péril, quelque chose en lui peut changer. Même terrifié, il pourrait trouver la force de rester à ses côtés alors que tout lui commande de fuir. Il ne cherche pas à surpasser son frère : il est son point d'ancrage, et peut-être l'une des dernières raisons qui l'empêchent de sombrer.</p>
+  <p>Les deux frères ont été soumis à la même expérience. Ren porte une fraction de l'essence de Tozen, moins importante en quantité, mais dont les conséquences restent inconnues. Cette part ne fait pas de lui un être supérieur : elle représente un fardeau qu'il ne comprend pas et qu'il n'a jamais choisi.</p>
+</section>
+<section class="piece" id="demon">
+  <div class="piece-kicker">Pièce 02 · Entité fractionnée</div>
+  <h2><span class="roman">Ⅱ.</span> Tozen — l'essence divisée</h2>
+  <div class="quote">« Regarde-les trembler, gamin… Laisse-moi prendre les rênes et je ferai de tes bourreaux mes jouets. »</div>
+  <div class="facts">
+    <div class="fact"><strong>Nom</strong><span>Tozen</span></div>
+    <div class="fact"><strong>Âge estimé</strong><span>2 853 ans</span></div>
+    <div class="fact"><strong>Origine</strong><span>Ancien noble vampire</span></div>
+    <div class="fact"><strong>Statut</strong><span>Entité démoniaque de rang supérieur <em>(à valider selon le lore serveur)</em></span></div>
+  </div>
+  <h3>Apparence</h3>
+  <p>Tozen est décrit comme une entité d'une stature colossale, avoisinant les deux mètres trente. Ses longs cheveux gris argenté encadrent un visage marqué par d'innombrables cicatrices. Ses yeux entièrement blancs donnent à son regard une étrangeté presque inhumaine.</p>
+  <p>Chaque cicatrice est associée à une victime ou à quelque chose qu'il a voulu s'approprier. Son apparence témoigne moins d'une gloire passée que d'une existence façonnée par la convoitise et la violence.</p>
+  <h3>Une jalousie sans limite</h3>
+  <p>Tozen ne supporte pas de voir une autre créature posséder ce qu'il désire. La force, le prestige, l'influence ou même l'attention d'autrui peuvent devenir pour lui des objets de convoitise. Il ne veut pas simplement obtenir ce que les autres possèdent : il veut décider qui en est digne, qui doit en être privé et qui mérite de souffrir pour l'avoir conservé.</p>
+  <p>Joueur, cruel et manipulateur, il considère les êtres vivants comme des pièces sur un échiquier. Il peut s'amuser de la détresse d'une victime, lui laisser croire qu'elle a une chance de s'en sortir, puis détruire méthodiquement le peu d'espoir qu'elle conserve.</p>
+  <h3>Une puissance divisée, une volonté intacte ?</h3>
+  <p>Le Projet Janus a réparti l'essence de Tozen entre deux hôtes. Taketsu en porte 75 %, tandis que Ren en porte 25 %. Cette répartition ne signifie pas que les deux garçons maîtrisent cette puissance, ni qu'ils peuvent en utiliser librement les capacités. La quantité d'essence présente dans un corps ne garantit ni le contrôle, ni la résistance mentale, ni la capacité à survivre à son influence.</p>
+  <p>La division de son essence a peut-être limité certaines de ses possibilités, mais elle a aussi créé une situation nouvelle : sa présence se manifeste désormais à travers deux êtres humains distincts. A-t-on réellement divisé Tozen, ou a-t-on seulement séparé une partie de sa puissance de ce qui faisait de lui une entité entière ? La réponse pourra se dévoiler progressivement en jeu.</p>
+</section>
+<section class="piece" id="lore">
+  <div class="piece-kicker">Pièce 03 · Chronologie événementielle</div>
+  <h2><span class="roman">Ⅲ.</span> Le Projet Janus — l'expérience interdite</h2>
+  <h3>Chapitre I — La fin d'un monde</h3>
+  <p>Lorsque l'apocalypse survint, Taketsu et Ren n'étaient encore que des enfants. Le chaos qui suivit la chute de la civilisation leur arracha brutalement la vie qu'ils connaissaient. Leurs parents disparurent au cours des premiers événements, les laissant seuls face à un monde où chaque ressource devenait précieuse et chaque rencontre potentiellement dangereuse.</p>
+  <p>Les deux frères tentèrent de survivre comme ils le pouvaient. Taketsu, malgré son jeune âge, prit progressivement l'habitude de surveiller les environs et de chercher de quoi les nourrir. Ren, plus craintif, s'appuyait sur lui pour avancer dans un monde qu'il ne comprenait pas. Ils n'avaient pas de grandes ambitions. Ils voulaient simplement rester ensemble.</p>
+  <h3>Chapitre II — Le refuge qui n'en était pas un</h3>
+  <p>Au cours de leur errance, les enfants découvrirent une ancienne installation militaire. Ses murs fortifiés et ses accès surveillés leur laissèrent croire qu'ils avaient enfin trouvé un lieu où se mettre à l'abri. L'installation appartenait en réalité à l'Armée démoniaque.</p>
+  <p>Au départ, les frères furent accueillis et placés sous surveillance. Leur présence éveilla cependant l'intérêt de certains scientifiques, engagés dans des recherches clandestines visant à développer une arme capable de rivaliser avec les vampires. Les premiers examens révélèrent chez eux une compatibilité inhabituelle avec le protocole expérimental étudié par l'équipe.</p>
+  <p>Les enfants furent séparés de leur vie précédente, soumis à des tests et progressivement transformés en sujets d'étude. Ce qui leur avait été présenté comme une protection devint une captivité.</p>
+  <h3>Chapitre III — Le partage de Tozen</h3>
+  <p>Le Projet Janus poursuivait un objectif que ses responsables jugeaient décisif : transférer l'essence d'une entité d'une puissance exceptionnelle dans des réceptacles humains, afin de produire une arme nouvelle.</p>
+  <p>L'ampleur de la puissance de Tozen rendait son implantation complète dans un seul hôte extrêmement risquée. Les chercheurs décidèrent donc de répartir son essence entre deux sujets présentant une compatibilité suffisante. Taketsu fut désigné comme réceptacle principal, recevant 75 % de l'essence de Tozen. Ren reçut les 25 % restants.</p>
+  <p>Les scientifiques pensaient avoir trouvé un moyen de contrôler les risques en séparant la puissance entre deux organismes. Ils n'avaient pas mesuré toutes les conséquences psychologiques, physiques et spirituelles de cette décision. Les deux frères subirent des procédures répétées, des injections expérimentales et des séances destinées à observer la réaction de leur esprit à la présence démoniaque.</p>
+  <p>Pour Taketsu, l'expérience se transforma en lutte intérieure. Une présence étrangère envahissait ses pensées, brouillait ses perceptions et lui imposait des visions terrifiantes. Pour Ren, la souffrance prit une autre forme : plus effacé et plus vulnérable, il supportait difficilement les traitements. La peur de ce qui lui arrivait se mêlait à celle de ne jamais revoir son frère.</p>
+  <p>Les scientifiques ne voyaient pas deux enfants liés par une histoire commune. Ils voyaient deux réceptacles complémentaires. Ils commirent une erreur fondamentale : ils crurent que diviser une puissance revenait à en maîtriser les fragments.</p>
+  <h3>Chapitre IV — La première rupture</h3>
+  <p>Les premiers résultats semblèrent prometteurs. Les instruments enregistrèrent des manifestations d'énergie inhabituelles et les chercheurs observèrent des réactions qu'ils interprétèrent comme les signes d'une adaptation progressive.</p>
+  <p>Puis survint un incident. Lors d'une séance particulièrement éprouvante, Taketsu perdit le contrôle de lui-même. Les limites que les chercheurs avaient tenté d'imposer au protocole cédèrent les unes après les autres. La puissance de Tozen se manifesta avec une violence que l'installation n'était pas préparée à contenir. Des installations furent détruites, les systèmes de sécurité compromis et le personnel perdit le contrôle de la situation.</p>
+  <p>Pendant un bref instant, le projet que l'Armée démoniaque espérait transformer en arme lui échappa complètement. Taketsu survécut, mais les événements laissèrent derrière eux des questions auxquelles personne ne pouvait répondre. Était-ce le garçon qui avait agi ? Tozen avait-il pris le contrôle ? Ou la frontière entre les deux était-elle déjà devenue impossible à distinguer ?</p>
+  <p>Ren, lui aussi affecté par l'expérience, demeurait au cœur du secret. Les responsables du projet comprirent qu'ils ne pouvaient plus considérer les deux sujets comme de simples étapes d'un protocole. Ils décidèrent de transférer les réceptacles vers une installation plus sécurisée.</p>
+  <h3>Chapitre V — Le convoi</h3>
+  <p>Le transfert devait permettre à l'Armée démoniaque de reprendre le contrôle de l'expérience loin des installations endommagées. Les deux frères furent pris en charge séparément, sous surveillance renforcée. Pour eux, ce déplacement n'était qu'une nouvelle étape dans une captivité dont ils ne comprenaient ni les raisons ni la durée.</p>
+  <p>Le convoi fut cependant attaqué par une force vampire. L'assaut plongea le train dans le chaos. Les soldats tentèrent de défendre les wagons, les communications furent perturbées et les prisonniers profitèrent de la confusion pour tenter de s'échapper.</p>
+  <p>Au milieu de cette violence, le sort des deux frères bascula une nouvelle fois. Taketsu parvint à fuir et à se dissimuler dans les environs. Blessé, épuisé et incapable de savoir à qui faire confiance, il se retrouva seul face à un monde qui lui avait déjà tout pris. Ren disparut également au cours des événements, mais les circonstances exactes de sa fuite restent à établir. Les deux frères furent séparés, sans savoir si l'autre avait survécu.</p>
+  <p>Dans le chaos du convoi, des documents confidentiels du Projet Janus tombèrent entre les mains des vampires. Ces dossiers révélèrent l'existence d'une expérience clandestine, la nature de Tozen et la présence de deux réceptacles humains. Dès lors, les deux factions eurent une raison supplémentaire de les rechercher.</p>
+  <h3>Chapitre VI — Deux frères, une même blessure</h3>
+  <p>Depuis leur séparation, Taketsu et Ren n'ont plus la certitude de pouvoir se retrouver. Ils ignorent ce que l'autre a subi, ce qu'il est devenu et dans quelle mesure l'expérience a changé son corps ou son esprit.</p>
+  <p>Pour Taketsu, la fuite est devenue une lutte quotidienne. Il doit survivre, éviter ceux qui le traquent et comprendre comment continuer à vivre avec une présence dont il ne maîtrise pas la nature. Pour Ren, la survie représente un défi différent. Seul, il doit apprendre à avancer malgré sa peur, sans la présence rassurante de son frère. Il n'a pas soudainement cessé d'être timide : il reste un enfant vulnérable, qui cherche instinctivement un visage familier dans chaque lieu inconnu.</p>
+  <p>L'Armée démoniaque veut récupérer les sujets pour poursuivre ses recherches et tenter de reprendre le contrôle de son projet. Les vampires ne peuvent ignorer l'existence d'une puissance susceptible de bouleverser l'équilibre des forces. Les deux enfants sont devenus les détenteurs involontaires d'un secret capable d'attiser une nouvelle guerre.</p>
+  <div class="quote">Le Projet Janus devait créer une arme. Il a laissé derrière lui deux enfants brisés, deux fragments d'une puissance qu'ils n'ont jamais demandée, et une expérience dont les conséquences échappent désormais à ses créateurs.</div>
+</section>
+<section class="piece" id="impact">
+  <div class="piece-kicker">Pièce 04 · Potentiel narratif</div>
+  <h2><span class="roman">Ⅳ.</span> Impact RP & possibilités d'évolution</h2>
+  <p>Le Projet Janus ne constitue pas seulement l'origine de deux personnages. Il représente un point de départ pour développer plusieurs axes de jeu, selon les règles et les possibilités du serveur.</p>
+  <h3>Pour l'Armée démoniaque</h3>
+  <ul class="list"><li>Retrouver les deux réceptacles et comprendre les causes de l'échec du transfert.</li><li>Reprendre les recherches autour de Tozen et de la compatibilité humaine avec son essence.</li><li>Mettre au jour les responsabilités des scientifiques et les conséquences du Projet Janus.</li><li>Développer des tensions entre ceux qui souhaitent récupérer les sujets et ceux qui redoutent ce qu'ils pourraient devenir.</li></ul>
+  <h3>Pour les vampires</h3>
+  <ul class="list"><li>Exploiter les documents récupérés pendant l'attaque du convoi.</li><li>Enquêter sur l'existence de Tozen et sur les limites de sa puissance.</li><li>Déterminer si les deux réceptacles représentent une menace, une opportunité ou un danger impossible à contrôler.</li><li>Organiser des opérations de recherche, d'infiltration ou de capture selon les décisions prises en jeu.</li></ul>
+  <h3>Pour les deux personnages</h3>
+  <ul class="list"><li>Développer une relation fraternelle marquée par la séparation, la peur et le besoin de se retrouver.</li><li>Explorer progressivement les séquelles des expériences, sans imposer de révélations aux autres joueurs.</li><li>Découvrir les effets éventuels du partage de l'essence de Tozen au fil des scènes.</li><li>Construire des choix difficiles : faire confiance, fuir, chercher des réponses ou accepter de retourner vers ceux qui les ont utilisés.</li></ul>
+  <p>La puissance de Tozen ne doit pas garantir la victoire des personnages. Elle constitue avant tout une source de danger, de mystère et de conséquences. Toute capacité concrète, manifestation démoniaque ou évolution devra être discutée et validée selon les règles du serveur.</p>
+</section>
+<section class="piece closing" id="conclusion">
+  <div class="piece-kicker">Pièce 05 · Clôture du dossier</div>
+  <h2><span class="roman">Ⅴ.</span> Conclusion — une arme qui n'a jamais voulu naître</h2>
+  <p>Le Projet Janus devait offrir à l'Armée démoniaque un moyen de combattre ses ennemis. Il a finalement créé une situation qu'elle ne contrôle plus.</p>
+  <p>Taketsu Otaya reste au centre de cette histoire : un enfant contraint de porter une puissance étrangère, traqué pour ce qu'il représente et confronté à la possibilité de perdre définitivement le contrôle de lui-même.</p>
+  <p>Ren Otaya partage son destin sans lui faire de l'ombre. Sa peur, sa fragilité et son attachement à son frère donnent à cette histoire une dimension plus intime. Il n'est pas un héros destiné à surpasser Taketsu, mais un enfant qui tente de tenir debout dans un monde qui lui a déjà arraché presque tout.</p>
+  <p>Au-dessus d'eux plane Tozen, une entité dont l'essence a été séparée, mais dont les intentions restent obscures. Leur histoire ne prétend pas apporter immédiatement toutes les réponses. Elle propose un mystère évolutif, des possibilités de développement pour les factions et une relation fraternelle qui pourra se construire au fil des événements.</p>
+  <div class="quote">Que restera-t-il de leur humanité lorsqu'ils découvriront ce que l'expérience a réellement fait d'eux ?</div>
+  <p>Nous remercions l'équipe d'administration et de modération pour la lecture de ce dossier. Nous sommes prêts à adapter le lore, les détails de l'expérience et les éventuelles capacités aux règles du serveur, afin de garantir un RP équilibré, collaboratif et évolutif.</p>
+</section>
+<a class="back-top" href="#top">↑ RETOUR EN HAUT DES ARCHIVES</a><footer>FIN DU DOSSIER · ARCHIVES CONFIDENTIELLES · OWARI NO SERAPH</footer></main>
 <script>
 (()=>{const audio=document.getElementById('music'),btn=document.getElementById('audio-toggle');audio.volume=.02;let playing=false;const sync=()=>{playing=!audio.paused;btn.textContent=playing?'Ⅱ':'▶';btn.setAttribute('aria-label',playing?'Couper la musique':'Activer la musique')};btn.addEventListener('click',async()=>{if(audio.paused){try{await audio.play()}catch(e){}}else audio.pause();sync()});audio.addEventListener('play',sync);audio.addEventListener('pause',sync);audio.addEventListener('error',()=>{btn.textContent='×';btn.title='Fichier audio introuvable'});sync()})();
 </script>
