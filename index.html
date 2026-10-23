@@ -246,7 +246,7 @@ if(particleLayer && !window.matchMedia('(prefers-reduced-motion: reduce)').match
     particleLayer.appendChild(particle);
   }
 }
-const audio=document.getElementById('music'),btn=document.getElementById('audio-toggle');audio.volume=.02;let playing=false;const sync=()=>{playing=!audio.paused;btn.textContent=playing?'Ⅱ':'▶';btn.setAttribute('aria-label',playing?'Couper la musique':'Activer la musique')};btn.addEventListener('click',async()=>{if(audio.paused){try{await audio.play()}catch(e){}}else audio.pause();sync()});audio.addEventListener('play',sync);audio.addEventListener('pause',sync);audio.addEventListener('error',()=>{btn.textContent='×';btn.title='Fichier audio introuvable'});sync()})();
+const audio=document.getElementById('music'),btn=document.getElementById('audio-toggle');audio.volume=.08;let playing=false;const sync=()=>{playing=!audio.paused;btn.textContent=playing?'Ⅱ':'▶';btn.setAttribute('aria-label',playing?'Couper la musique':'Activer la musique')};btn.addEventListener('click',async()=>{if(audio.paused){try{await audio.play()}catch(e){}}else audio.pause();sync()});audio.addEventListener('play',sync);audio.addEventListener('pause',sync);audio.addEventListener('error',()=>{btn.textContent='×';btn.title='Fichier audio introuvable'});audio.autoplay=true;audio.play().then(sync).catch(()=>{sync();btn.title='Cliquez pour lancer la bande sonore : la lecture automatique est bloquée par le navigateur'});sync()})();
 </script>
 </body>
 </html>
