@@ -48,11 +48,19 @@ main, .piece, .piece p, .piece h2, .piece h3, .piece-kicker, .piece .facts, .pie
 .piece .fact { width:100%; }
 .piece .fact strong, .piece .fact span { text-align:center; }
 .hero { isolation:isolate; }
-.paperfall { position:absolute; inset:0; z-index:3; overflow:hidden; pointer-events:none; }
-.paperfall .scrap { position:absolute; top:-18%; display:block; width:clamp(13px,2.2vw,28px); height:clamp(18px,3vw,38px); opacity:0; background:linear-gradient(145deg,#d9c8a6 0%,#b6a184 45%,#e5d6bc 100%); border:1px solid rgba(67,43,29,.65); box-shadow:0 2px 8px #0008; clip-path:polygon(0 0,100% 4%,93% 89%,75% 100%,8% 93%); animation:paper-drift var(--duration,12s) linear var(--delay,0s) infinite; }
-.paperfall .scrap:after { content:""; position:absolute; left:15%; right:15%; top:30%; height:1px; background:rgba(77,45,28,.45); box-shadow:0 5px rgba(77,45,28,.25),0 10px rgba(77,45,28,.2); }
-@keyframes paper-drift { 0%{transform:translate3d(0,-5vh,0) rotate(0deg);opacity:0} 8%{opacity:.7} 48%{opacity:.65} 90%{opacity:.35} 100%{transform:translate3d(var(--drift,80px),115vh,0) rotate(var(--spin,260deg));opacity:0} }
-@media(prefers-reduced-motion:reduce){.paperfall .scrap{animation:none;display:none}}
+/* Particules fines rouge, beige et ivoire sur l'ensemble du dossier */
+.paperfall{display:none}
+.particle-field{position:fixed;inset:0;z-index:8;overflow:hidden;pointer-events:none}
+.particle-field .particle{position:absolute;top:-12px;display:block;width:var(--size,3px);height:var(--size,3px);border-radius:50%;background:var(--tone,#d7c5a6);opacity:0;box-shadow:0 0 7px color-mix(in srgb,var(--tone,#d7c5a6) 65%,transparent);animation:particle-drift var(--duration,16s) linear var(--delay,0s) infinite}
+.particle-field .particle:nth-child(3n){border-radius:1px;transform:rotate(35deg)}
+@keyframes particle-drift{0%{transform:translate3d(0,-3vh,0) scale(.7);opacity:0}12%{opacity:var(--alpha,.65)}70%{opacity:var(--alpha,.65)}100%{transform:translate3d(var(--drift,35px),110vh,0) scale(1.1);opacity:0}}
+@media(prefers-reduced-motion:reduce){.particle-field{display:none}}
+/* Brume basse au pied de la couverture d'accueil */
+.hero{isolation:isolate;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;z-index:2;left:-8%;right:-8%;bottom:-2px;height:clamp(100px,18vh,210px);pointer-events:none;background:linear-gradient(to top,rgba(8,8,9,.98) 0%,rgba(12,12,13,.78) 28%,rgba(18,18,19,.38) 58%,transparent 100%);filter:blur(8px)}
+.hero:before{content:"";position:absolute;z-index:2;left:-12%;right:-12%;bottom:22px;height:clamp(65px,11vh,130px);pointer-events:none;background:radial-gradient(ellipse at 20% 80%,rgba(210,205,195,.13),transparent 54%),radial-gradient(ellipse at 65% 60%,rgba(205,198,187,.12),transparent 52%),radial-gradient(ellipse at 90% 80%,rgba(190,184,176,.1),transparent 50%);filter:blur(24px);animation:low-mist 13s ease-in-out infinite alternate}
+@keyframes low-mist{from{transform:translateX(-2%) translateY(4px);opacity:.65}to{transform:translateX(2%) translateY(-5px);opacity:1}}
+@media(prefers-reduced-motion:reduce){.hero:before{animation:none}}
 
 
 /* Portraits sur les côtés, avec la colonne de texte centrée dans la page */
@@ -93,6 +101,7 @@ main, .piece, .piece p, .piece h2, .piece h3, .piece-kicker, .piece .facts, .pie
 </style>
 </head>
 <body id="top">
+<div class="particle-field" aria-hidden="true"></div>
 <div class="background-image" aria-hidden="true"></div><div class="film-grain" aria-hidden="true"></div>
 <nav class="top-nav" aria-label="Navigation du dossier"><a href="#hote">01 · Les frères</a><a href="#demon">02 · Tozen</a><a href="#lore">03 · Le Projet Janus</a><a href="#impact">04 · Impact RP</a><a href="#conclusion">05 · Conclusion</a></nav>
 <div class="audio"><div class="track"><small>BANDE SONORE</small>Misty Mountain Cold</div><audio id="music" preload="metadata" loop src="asset/Misty%20Mountain%20Cold%20Lyrics.mp3"></audio><button id="audio-toggle" type="button" aria-label="Activer ou couper la musique" title="Activer ou couper la musique">▶</button></div>
@@ -220,19 +229,20 @@ main, .piece, .piece p, .piece h2, .piece h3, .piece-kicker, .piece .facts, .pie
 <a class="back-top" href="#top">↑ RETOUR EN HAUT DES ARCHIVES</a><footer>FIN DU DOSSIER · ARCHIVES CONFIDENTIELLES · OWARI NO SERAPH</footer></main>
 <script>
 (()=>{
-const paperLayer=document.querySelector('.paperfall');
-if(paperLayer && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-  for(let i=0;i<17;i++){
-    const paper=document.createElement('span');
-    paper.className='scrap';
-    paper.style.left=(Math.random()*100)+'%';
-    paper.style.setProperty('--duration',(10+Math.random()*13)+'s');
-    paper.style.setProperty('--delay',(-Math.random()*22)+'s');
-    paper.style.setProperty('--drift',((Math.random()*180)-90)+'px');
-    paper.style.setProperty('--spin',((Math.random()*520)-260)+'deg');
-    paper.style.width=(12+Math.random()*18)+'px';
-    paper.style.height=(17+Math.random()*25)+'px';
-    paperLayer.appendChild(paper);
+const particleLayer=document.querySelector('.particle-field');
+if(particleLayer && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const tones=['#a92f35','#c94b4e','#d8c4a5','#eee7d9','#b7afa4'];
+  for(let i=0;i<58;i++){
+    const particle=document.createElement('span');
+    particle.className='particle';
+    particle.style.left=(Math.random()*100)+'%';
+    particle.style.setProperty('--tone',tones[Math.floor(Math.random()*tones.length)]);
+    particle.style.setProperty('--size',(1.5+Math.random()*3.5)+'px');
+    particle.style.setProperty('--duration',(12+Math.random()*19)+'s');
+    particle.style.setProperty('--delay',(-Math.random()*28)+'s');
+    particle.style.setProperty('--drift',((Math.random()*130)-65)+'px');
+    particle.style.setProperty('--alpha',(0.25+Math.random()*0.5).toFixed(2));
+    particleLayer.appendChild(particle);
   }
 }
 const audio=document.getElementById('music'),btn=document.getElementById('audio-toggle');audio.volume=.02;let playing=false;const sync=()=>{playing=!audio.paused;btn.textContent=playing?'Ⅱ':'▶';btn.setAttribute('aria-label',playing?'Couper la musique':'Activer la musique')};btn.addEventListener('click',async()=>{if(audio.paused){try{await audio.play()}catch(e){}}else audio.pause();sync()});audio.addEventListener('play',sync);audio.addEventListener('pause',sync);audio.addEventListener('error',()=>{btn.textContent='×';btn.title='Fichier audio introuvable'});sync()})();
